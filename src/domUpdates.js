@@ -15,27 +15,29 @@ export default{
 
   GameBoardListener: function(event) {
     console.log('testing2');
+    let classItem = event.target.className;
+      // if (classItem.type === undefined) {
+      //   classItem = event.target.parentElement.className;
+      // }
+      // if (classItem === '') classItem = event.target.parentElement.className;
+      console.log(classItem)
       let currentQuestion; 
       let categoryIndex = event.target.classList[1];
-      console.log(event.target.classList.contains([0]))
-      switch (event.target.classList[0]) {
-      case '100-val':
-      console.log('testing41')
+      switch (true) {
+      case classItem.includes('100-val'):
         currentQuestion = game.rounds[0].roundClues[categoryIndex][0];
         event.target.classList.add('question-used');
         break;
-      case '200-val':
-      console.log('testing42')
+      case classItem.includes('200-val'):
         currentQuestion = game.rounds[0].roundClues[categoryIndex][1];
         event.target.classList.add('question-used');
         break;
-      case '300-val':
-      console.log('testing43')
+      case classItem.includes('300-val'):
         currentQuestion = game.rounds[0].roundClues[categoryIndex][2];
+        console.log('YUUUUP');
         event.target.classList.add('question-used');
         break;
-      case '400-val':
-      console.log('testing44')
+      case classItem.includes('400-val'):
         currentQuestion = game.rounds[0].roundClues[categoryIndex][3];
         event.target.classList.add('question-used');
         break;
