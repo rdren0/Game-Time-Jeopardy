@@ -12,14 +12,12 @@ export default{
         $('#player' + ([ind + 1]) + '-name-text').text(player.name);
     })
   },
-
   GameBoardListener: function(event) {
     console.log('testing2');
-    let classItem = event.target.className;
-      // if (classItem.type === undefined) {
-      //   classItem = event.target.parentElement.className;
-      // }
-      // if (classItem === '') classItem = event.target.parentElement.className;
+    if(event.target.tagName.toLowerCase() === 'h2'){
+      event.target = event.target.parentElement
+      }
+      let classItem = event.target.className;
       console.log(classItem)
       let currentQuestion; 
       let categoryIndex = event.target.classList[1];
@@ -42,6 +40,8 @@ export default{
         event.target.classList.add('question-used');
         break;
     }
+    console.log(game.rounds[0].roundClues[1][1])
+    console.log(currentQuestion)
   }
 }
 
