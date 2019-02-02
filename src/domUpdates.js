@@ -17,25 +17,26 @@ export default{
     console.log('testing2');
       let currentQuestion; 
       let categoryIndex = event.target.classList[1];
+      console.log(event.target.classList.contains([0]))
       switch (event.target.classList[0]) {
       case '100-val':
       console.log('testing41')
-        currentQuestion = round.roundClues[categoryIndex][0];
+        currentQuestion = game.rounds[0].roundClues[categoryIndex][0];
         event.target.classList.add('question-used');
         break;
       case '200-val':
       console.log('testing42')
-        currentQuestion = round.roundClues[categoryIndex][1];
+        currentQuestion = game.rounds[0].roundClues[categoryIndex][1];
         event.target.classList.add('question-used');
         break;
       case '300-val':
       console.log('testing43')
-        currentQuestion = round.roundClues[categoryIndex][2];
+        currentQuestion = game.rounds[0].roundClues[categoryIndex][2];
         event.target.classList.add('question-used');
         break;
       case '400-val':
       console.log('testing44')
-        currentQuestion = round.roundClues[categoryIndex][3];
+        currentQuestion = game.rounds[0].roundClues[categoryIndex][3];
         event.target.classList.add('question-used');
         break;
     }
