@@ -1,4 +1,5 @@
 import Game from './Game.js'
+import domUpdates from './domUpdates.js';
 
 class Round{
   constructor(baseData, currentRound){
@@ -15,6 +16,7 @@ class Round{
         rndCat.push(this.baseData[ind].find(clue => clue.pointValue === value))
       })
     })
+    domUpdates.loadCategories();
   }
 
 }

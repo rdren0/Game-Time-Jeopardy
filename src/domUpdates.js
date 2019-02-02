@@ -12,6 +12,24 @@ export default{
         $('#player' + ([ind + 1]) + '-name-text').text(player.name);
     })
   },
+  loadCategories: function () {
+    const topics = ['United States History',
+    'Life Sciences',
+    'Public Health',
+    'Education Jargon',
+    'Name That Board Game',
+    'American Literature',
+    'Biographies',
+    'American Cities',
+    'Food',
+    'Cable TV'];
+    // console.log(firstClue);
+    
+    for (let ind = 1; ind < 5; ind++)  {
+      let firstClue = game.rounds[0].roundClues[ind - 1][0].categoryId;
+      $(`.cat-${ind}`).text(topics[firstClue - 1])
+    }
+  },
   GameBoardListener: function(event) {
     console.log('testing2');
     if(event.target.tagName.toLowerCase() === 'h2'){

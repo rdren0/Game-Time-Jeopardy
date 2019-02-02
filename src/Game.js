@@ -38,8 +38,8 @@ class Game{
   }
   createRounds () {
     let round = new Round(this.clueSet());
+    this.rounds.push(round);
     round.sortClues();
-    this.rounds.push(round)
   }
   clueSet () {
   return this.allData.splice(0, 4);
