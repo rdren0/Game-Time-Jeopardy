@@ -25,11 +25,11 @@ export default {
       'American Cities',
       'Food',
       'Cable TV'];
-    
-    for (let ind = 0; ind < 5; ind++)  {
-      let firstClue = round.roundClues[ind][0].categoryId;
-      $(`.cat-${ind}`).text(topics[firstClue - 1])
-    }
+      
+    round.roundClues.forEach((cat, ind) => {
+     let catId = cat[0].categoryId - 1;
+     $(`.cat-${ind}`).text(topics[catId])
+    });
   },
   gameBoardListener(event, game) {
     if (event.target.tagName.toLowerCase() === 'h2') {
@@ -41,23 +41,23 @@ export default {
     console.log(categoryIndex);
     switch (true) {
     case classItem.includes('100-val'):
-      currentQuestion = game.rounds[0].roundClues[categoryIndex][0];
+      currentQuestion = game.round.roundClues[categoryIndex][0];
       event.target.classList.add('question-used');
       addQuestionDom(currentQuestion);
       console.log(currentQuestion);
       break;
     case classItem.includes('200-val'):
-      currentQuestion = game.rounds[0].roundClues[categoryIndex][1];
+      currentQuestion = game.round.roundClues[categoryIndex][1];
       event.target.classList.add('question-used');
       console.log(currentQuestion);
       break;
     case classItem.includes('300-val'):
-      currentQuestion = game.rounds[0].roundClues[categoryIndex][2];
+      currentQuestion = game.round.roundClues[categoryIndex][2];
       event.target.classList.add('question-used');
       console.log(currentQuestion);
       break;
     case classItem.includes('400-val'):
-      currentQuestion = game.rounds[0].roundClues[categoryIndex][3];
+      currentQuestion = game.round.roundClues[categoryIndex][3];
       event.target.classList.add('question-used');
       console.log(currentQuestion);
       break;
