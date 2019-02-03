@@ -1,4 +1,5 @@
 import Game from './Game.js'
+import index from './index.js'
 
 export default {
   grabNames () {
@@ -12,7 +13,7 @@ export default {
       $('#player' + ([ind + 1]) + '-name-text').text(player.name);
     })
   },
-  loadCategories () {
+  displayCategories (round) {
     const topics = [
       'United States History',
       'Life Sciences',
@@ -26,11 +27,11 @@ export default {
       'Cable TV'];
     
     for (let ind = 0; ind < 5; ind++)  {
-      let firstClue = game.rounds[0].roundClues[ind][0].categoryId;
+      let firstClue = round.roundClues[ind][0].categoryId;
       $(`.cat-${ind}`).text(topics[firstClue - 1])
     }
   },
-  GameBoardListener(event) {
+  gameBoardListener(event, game) {
     if (event.target.tagName.toLowerCase() === 'h2') {
       event.target = event.target.parentElement
     }

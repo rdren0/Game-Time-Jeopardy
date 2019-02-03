@@ -13,7 +13,7 @@ class Game {
   start() {
     this.createPlayers(domUpdates.grabNames());
     this.getRandomData();
-    this.createRounds();
+    this.createRound();
   }
 
   createPlayers(array) {
@@ -36,14 +36,17 @@ class Game {
   shuffle (a) {
     return a.sort(() => 0.5 - Math.random());
   }
-  createRounds () {
+  createRound () {
     let round = new Round(this.clueSet());
     console.log(this.allData);
     this.rounds.push(round);
-    round.sortClues();
+    round.sortClues(this);
   }
   clueSet () {
     return this.allData.splice(0, 4);
+  }
+  boardListerner (event) {
+    domUpdates.gameBoardListener(event, this);
   }
 }
 

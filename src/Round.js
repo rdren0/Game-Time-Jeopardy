@@ -2,7 +2,7 @@ import Game from './Game.js'
 import domUpdates from './domUpdates.js';
 
 class Round {
-  constructor(baseData, currentRound) {
+  constructor(baseData) {
     this.turnNum = 1;
     this.currentRound = 0;
     this.baseData = baseData;
@@ -16,7 +16,7 @@ class Round {
         rndCat.push(this.baseData[ind].find(clue => clue.pointValue === value))
       })
     })
-    domUpdates.loadCategories();
+    domUpdates.displayCategories(this);
   }
 
 }
