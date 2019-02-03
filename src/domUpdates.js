@@ -15,7 +15,7 @@ export default {
   },
   displayCategories (round) {
     const topics = [
-      'United States History',
+      'U.S. History',
       'Life Sciences',
       'Public Health',
       'Education Jargon',
@@ -25,7 +25,7 @@ export default {
       'American Cities',
       'Food',
       'Cable TV'];
-      
+
     round.roundClues.forEach((cat, ind) => {
      let catId = cat[0].categoryId - 1;
      $(`.cat-${ind}`).text(topics[catId])
@@ -43,22 +43,25 @@ export default {
     case classItem.includes('100-val'):
       currentQuestion = game.round.roundClues[categoryIndex][0];
       event.target.classList.add('question-used');
-      addQuestionDom(currentQuestion);
+      this.addQuestionDom(currentQuestion);
       console.log(currentQuestion);
       break;
     case classItem.includes('200-val'):
       currentQuestion = game.round.roundClues[categoryIndex][1];
       event.target.classList.add('question-used');
+      this.addQuestionDom(currentQuestion);
       console.log(currentQuestion);
       break;
     case classItem.includes('300-val'):
       currentQuestion = game.round.roundClues[categoryIndex][2];
       event.target.classList.add('question-used');
+      this.addQuestionDom(currentQuestion);
       console.log(currentQuestion);
       break;
     case classItem.includes('400-val'):
       currentQuestion = game.round.roundClues[categoryIndex][3];
       event.target.classList.add('question-used');
+      this.addQuestionDom(currentQuestion);
       console.log(currentQuestion);
       break;
     }

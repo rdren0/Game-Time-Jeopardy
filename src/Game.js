@@ -6,7 +6,6 @@ import data from './data.js'
 class Game {
   constructor() {
     this.round = 0;
-    this.rounds = [];
     this.players = [];
     this.allData = [[],[],[],[],[],[],[],[],[],[]];
   }
