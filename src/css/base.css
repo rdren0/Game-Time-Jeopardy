@@ -65,18 +65,20 @@ h4.player-name{
 
 }
 
-.game {
-  display: none;
+.clue{
+  display: flex;
 }
-.none{
-  display: none; 
-}
-.game-board-area{
+
+
+.game{
   background-color: grey;
   display: grid;
   grid-template-areas: "gameboard" "player";
   grid-template-columns: 1fr;
   padding: 5px;
+}
+.none{
+  display: none; 
 }
 
 .welcome-page{

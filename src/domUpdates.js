@@ -7,8 +7,8 @@ export default {
     return players;
   },
   loadGameBoard (arr) {
-    $('.game').attr('class', 'game-board-area');
-    $('.intro-page').attr('class', 'none');
+    $('.game').removeClass('none');
+    $('.intro-page').addClass('none');
     arr.forEach((player, ind) => {
       $('#player' + ([ind + 1]) + '-name-text').text(player.name);
     })
@@ -68,16 +68,15 @@ export default {
 
   },
   addQuestionDom(currentQuestion) {
-  $('.game-board-area').addClass('none');
-  $('.none clue').attr('class', 'clue');
- 
+  $('.game').addClass('none');
+  $('.clue').removeClass('none');
   var currentClue = `
            <h1 class="question-area">${currentQuestion.question}</h1>
             <h2>Please enter an answer</h2>
             <label>Answer:</label>
             <input>
             <button>Submit Answer</button>`;
-          questionSection.insertAdjacentHTML('afterbegin',currentClue);
+          $(currentClue).appendTo('.clue');
       }
 }
 
