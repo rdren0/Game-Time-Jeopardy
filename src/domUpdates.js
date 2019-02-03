@@ -43,6 +43,7 @@ export default {
     case classItem.includes('100-val'):
       currentQuestion = game.rounds[0].roundClues[categoryIndex][0];
       event.target.classList.add('question-used');
+      addQuestionDom(currentQuestion);
       console.log(currentQuestion);
       break;
     case classItem.includes('200-val'):
@@ -62,7 +63,17 @@ export default {
       break;
     }
 
-  }
+  },
+  addQuestionDom(currentQuestion) {
+  var questionSection = document.querySelector(".question-section");
+  var currentClue = `
+           <h1 class="question-area">${currentQuestion.question}</h1>
+            <h2>Please enter an answer</h2>
+            <label>Answer:</label>
+            <input>
+            <button>Submit Answer</button>`;
+          questionSection.insertAdjacentHTML('afterbegin',currentClue);
+      }
 }
 
 
