@@ -39,7 +39,7 @@ class Game {
   createRound () {
     let round = new Round(this.clueSet());
     console.log(this.allData);
-    this.rounds.push(round);
+    this.round = round;
     round.sortClues(this);
   }
   clueSet () {
