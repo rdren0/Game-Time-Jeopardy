@@ -24,7 +24,7 @@ export default {
       'Food',
       'Cable TV'];
     
-    for (let ind = 1; ind < 5; ind++)  {
+    for (let ind = 0; ind < 5; ind++)  {
       let firstClue = game.rounds[0].roundClues[ind - 1][0].categoryId;
       $(`.cat-${ind}`).text(topics[firstClue - 1])
     }
