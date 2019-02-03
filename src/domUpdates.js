@@ -7,15 +7,15 @@ export default {
     return players;
   },
   loadGameBoard (arr) {
-    $('.entry-page').attr('class', 'game-board-area');
-    $('.intro-page').attr('class', 'entry-page');
+    $('.game').attr('class', 'game-board-area');
+    $('.intro-page').attr('class', 'none');
     arr.forEach((player, ind) => {
       $('#player' + ([ind + 1]) + '-name-text').text(player.name);
     })
   },
   displayCategories (round) {
     const topics = [
-      'United States History',
+      'U.S. History',
       'Life Sciences',
       'Public Health',
       'Education Jargon',
@@ -25,7 +25,7 @@ export default {
       'American Cities',
       'Food',
       'Cable TV'];
-      
+
     round.roundClues.forEach((cat, ind) => {
      let catId = cat[0].categoryId - 1;
      $(`.cat-${ind}`).text(topics[catId])
@@ -43,29 +43,34 @@ export default {
     case classItem.includes('100-val'):
       currentQuestion = game.round.roundClues[categoryIndex][0];
       event.target.classList.add('question-used');
-      addQuestionDom(currentQuestion);
+      this.addQuestionDom(currentQuestion);
       console.log(currentQuestion);
       break;
     case classItem.includes('200-val'):
       currentQuestion = game.round.roundClues[categoryIndex][1];
       event.target.classList.add('question-used');
+      this.addQuestionDom(currentQuestion);
       console.log(currentQuestion);
       break;
     case classItem.includes('300-val'):
       currentQuestion = game.round.roundClues[categoryIndex][2];
       event.target.classList.add('question-used');
+      this.addQuestionDom(currentQuestion);
       console.log(currentQuestion);
       break;
     case classItem.includes('400-val'):
       currentQuestion = game.round.roundClues[categoryIndex][3];
       event.target.classList.add('question-used');
+      this.addQuestionDom(currentQuestion);
       console.log(currentQuestion);
       break;
     }
 
   },
   addQuestionDom(currentQuestion) {
-  var questionSection = document.querySelector(".question-section");
+  $('.game-board-area').addClass('none');
+  $('.none clue').attr('class', 'clue');
+ 
   var currentClue = `
            <h1 class="question-area">${currentQuestion.question}</h1>
             <h2>Please enter an answer</h2>
