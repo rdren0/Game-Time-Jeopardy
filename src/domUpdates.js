@@ -13,7 +13,8 @@ export default {
     })
   },
   loadCategories () {
-    const topics = ['United States History',
+    const topics = [
+      'United States History',
       'Life Sciences',
       'Public Health',
       'Education Jargon',
@@ -25,7 +26,7 @@ export default {
       'Cable TV'];
     
     for (let ind = 0; ind < 5; ind++)  {
-      let firstClue = game.rounds[0].roundClues[ind - 1][0].categoryId;
+      let firstClue = game.rounds[0].roundClues[ind][0].categoryId;
       $(`.cat-${ind}`).text(topics[firstClue - 1])
     }
   },
@@ -36,6 +37,7 @@ export default {
     let classItem = event.target.className;
     let currentQuestion; 
     let categoryIndex = event.target.classList[1];
+    console.log(categoryIndex);
     switch (true) {
     case classItem.includes('100-val'):
       currentQuestion = game.rounds[0].roundClues[categoryIndex][0];

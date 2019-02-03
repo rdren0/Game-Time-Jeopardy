@@ -8,7 +8,7 @@ class Game {
     this.round = 0;
     this.rounds = [];
     this.players = [];
-    this.allData = [[], [], [], [], [], [], [], [], [], []];
+    this.allData = [[],[],[],[],[],[],[],[],[],[]];
   }
   start() {
     this.createPlayers(domUpdates.grabNames());
@@ -34,46 +34,17 @@ class Game {
     this.shuffle(this.allData).forEach(cat => this.shuffle(cat));
   }
   shuffle (a) {
-    return a.sort(() => 0.5 - Math.random())
+    return a.sort(() => 0.5 - Math.random());
   }
   createRounds () {
     let round = new Round(this.clueSet());
+    console.log(this.allData);
     this.rounds.push(round);
     round.sortClues();
   }
   clueSet () {
     return this.allData.splice(0, 4);
   }
-  
-  // var catArr = [[],[],[],[],[],[],[],[],[],[]];
-
-  // catArr.forEach((cat,ind) => {
-  //   data.clues.forEach(clue => { 
-  //     if (clue.categoryId === (ind + 1)){
-  //       cat.push(clue);
-  //     }
-  //   })
-  // });
-
-
-  // shuffle(catArr).forEach(cat => shuffle(cat));
-  
-  // function shuffle(a) {
-  //   return a.sort(() => 0.5 - Math.random())
-  // }
-
-  // let pointValuesArr = [100, 200, 300, 400]
-  // let roundClues = [];
-  // categories.forEach(cat => {
-  //   pointValuesArr.forEach(value => {
-  //     roundClues.push(cat.find(clue => clue.pointValue === value))
-  //   })
-  // })
-
-  // function spliceArr (array) {
-  //   return array.splice(0, 4)
-  // }
-  // console.log(roundClues);
 }
 
 export default Game;
