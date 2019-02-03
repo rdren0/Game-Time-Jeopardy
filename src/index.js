@@ -14,14 +14,15 @@ import './images/player3.svg';
 
 
 
-$('.box').on('click', (event) => {
-  domUpdates.GameBoardListener(event); 
-});
-
+let game;
 
 
 $('.start-game').on('click', (e) => {
   e.preventDefault();
-  window.game = new Game();
+  game = new Game();
   game.start();
+});
+
+$('.box').on('click', (event) => {
+  game.boardListerner(event); 
 });
