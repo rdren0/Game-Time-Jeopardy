@@ -15,10 +15,7 @@ import './images/player3.svg';
 
 
 $('.box').on('click', (event) => {
-  console.log('testing1');
   domUpdates.GameBoardListener(event); 
-  console.log('testing3');
-
 });
 
 

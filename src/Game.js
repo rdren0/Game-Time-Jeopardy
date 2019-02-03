@@ -3,30 +3,30 @@ import domUpdates from './domUpdates.js';
 import Round from './Round.js';
 import data from './data.js'
 
-class Game{
-  constructor(){
+class Game {
+  constructor() {
     this.round = 0;
     this.rounds = [];
     this.players = [];
-    this.allData = [[],[],[],[],[],[],[],[],[],[]];
+    this.allData = [[], [], [], [], [], [], [], [], [], []];
   }
-  start(){
+  start() {
     this.createPlayers(domUpdates.grabNames());
     this.getRandomData();
     this.createRounds();
   }
 
-  createPlayers(array){
-      this.players = array.map(person => {
-       return person = new Player(person);
-      });
-      this.shuffle(this.players);
-      domUpdates.loadGameBoard(this.players);
+  createPlayers(array) {
+    this.players = array.map(person => {
+      return person = new Player(person);
+    });
+    this.shuffle(this.players);
+    domUpdates.loadGameBoard(this.players);
   }
   getRandomData () {
-    this.allData.forEach((cat,ind) => {
+    this.allData.forEach((cat, ind) => {
       data.clues.forEach(clue => { 
-        if (clue.categoryId === (ind + 1)){
+        if (clue.categoryId === (ind + 1)) {
           cat.push(clue);
         }
       })
@@ -42,7 +42,7 @@ class Game{
     round.sortClues();
   }
   clueSet () {
-  return this.allData.splice(0, 4);
+    return this.allData.splice(0, 4);
   }
   
   // var catArr = [[],[],[],[],[],[],[],[],[],[]];

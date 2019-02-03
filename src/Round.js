@@ -1,12 +1,12 @@
 import Game from './Game.js'
 import domUpdates from './domUpdates.js';
 
-class Round{
-  constructor(baseData, currentRound){
+class Round {
+  constructor(baseData, currentRound) {
     this.turnNum = 1;
     this.currentRound = 0;
     this.baseData = baseData;
-    this.roundClues = [[],[],[],[]];
+    this.roundClues = [[], [], [], []];
     this.pointValues = [100, 200, 300, 400];
 
   }
