@@ -44,7 +44,6 @@ input[type=text]:focus {
 }
 
 h4.player-name{
-  /* place-self: center; */
   font-size: 36px;
   font-weight: 100;
 }
@@ -65,7 +64,11 @@ h4.player-name{
   grid-column: 2;
 
 }
-.entry-page{
+
+.game {
+  display: none;
+}
+.none{
   display: none; 
 }
 .game-board-area{

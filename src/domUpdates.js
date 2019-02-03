@@ -7,8 +7,8 @@ export default {
     return players;
   },
   loadGameBoard (arr) {
-    $('.entry-page').attr('class', 'game-board-area');
-    $('.intro-page').attr('class', 'entry-page');
+    $('.game').attr('class', 'game-board-area');
+    $('.intro-page').attr('class', 'none');
     arr.forEach((player, ind) => {
       $('#player' + ([ind + 1]) + '-name-text').text(player.name);
     })
@@ -68,7 +68,9 @@ export default {
 
   },
   addQuestionDom(currentQuestion) {
-  var questionSection = document.querySelector(".question-section");
+  $('.game-board-area').addClass('none');
+  $('.none clue').attr('class', 'clue');
+ 
   var currentClue = `
            <h1 class="question-area">${currentQuestion.question}</h1>
             <h2>Please enter an answer</h2>
