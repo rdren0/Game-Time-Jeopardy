@@ -18,7 +18,7 @@ describe('Game', () => {
     const game = new Game();
     expect(game.players).to.deep.equal([]);
     expect(game.round).to.equal(0);
-    expect(game.allData).to.deep.equal([[],[],[],[],[],[],[],[],[],[]]);
+    expect(game.allData).to.deep.equal([[], [], [], [], [], [], [], [], [], []]);
 
   })
 
@@ -27,9 +27,9 @@ describe('Game', () => {
     expect(game.players).to.deep.equal([]);
     game.createPlayers(['mike', 'jill', 'megan']);
     expect(game.players.length).to.equal(3);
-    expect(games.players).to.includes('mike');
-    expect(games.players).to.includes('megan');
-    expect(games.players).to.includes('jill');
+    expect(game.players).to.includes('mike');
+    expect(game.players).to.includes('megan');
+    expect(game.players).to.includes('jill');
     expect(domUpdates.loadGameBoard).to.have.been.called;
 
 

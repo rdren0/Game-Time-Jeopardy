@@ -7,7 +7,7 @@ class Game {
   constructor() {
     this.round = 0;
     this.players = [];
-    this.allData = [[],[],[],[],[],[],[],[],[],[]];
+    this.allData = [[], [], [], [], [], [], [], [], [], []];
   }
   start() {
     this.createPlayers(domUpdates.grabNames());
@@ -37,7 +37,6 @@ class Game {
   }
   createRound () {
     let round = new Round(this.clueSet());
-    console.log(this.allData);
     this.round = round;
     round.sortClues(this);
   }
