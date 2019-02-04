@@ -27,7 +27,6 @@ export default {
       'American Cities',
       'Food',
       'Cable TV'];
-      console.log(round.roundClues);
     round.roundClues.forEach((cat, ind) => {
       let catId = cat[0].categoryId - 1;
       $(`.cat-${ind}`).text(topics[catId])

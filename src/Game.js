@@ -9,9 +9,9 @@ class Game {
     this.allData = [[], [], [], [], [], [], [], [], [], []];
   }
   start() {
+    this.getRandomData();
     this.createRound();
     this.createPlayers(domUpdates.grabNames());
-    this.getRandomData();
   }
 
   createPlayers(array) {
@@ -20,6 +20,7 @@ class Game {
     });
     this.shuffle(this.round.players);
     domUpdates.loadGameBoard(this.round.players);
+    this.round.sortClues(this);
   }
   getRandomData () {
     this.allData.forEach((cat, ind) => {
@@ -37,7 +38,6 @@ class Game {
   createRound () {
     let round = new Round(this.clueSet());
     this.round = round;
-    round.sortClues(this);
   }
   clueSet () {
     return this.allData.splice(0, 4);
