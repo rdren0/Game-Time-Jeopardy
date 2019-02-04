@@ -30,34 +30,34 @@ describe('Game', () => {
     expect(game.players.length).to.equal(3);
 
     game.players.forEach((player, ind) => {
-      expect(game.players[ind]).to.have.keys('name','score','turn','wager');
+      expect(game.players[ind]).to.have.keys('name', 'score', 'turn', 'wager');
     })
     expect(domUpdates.loadGameBoard).to.have.been.called;
   })
 
   it ('should gather all data on start', () => {
-    expect(game.allData).to.deep.equal([[],[],[],[],[],[],[],[],[],[]]);
+    expect(game.allData).to.deep.equal([[], [], [], [], [], [], [], [], [], []]);
     game.start();
     game.allData.forEach((cat) => {
       expect(cat.length).to.be.at.least(5);
     })
   })
-    it('should be able to create round object', () => {
-      game.start();
-      expect(game.round).to.be.an('object');
-    })
+  it('should be able to create round object', () => {
+    game.start();
+    expect(game.round).to.be.an('object');
+  })
 
-    it('should have 4 less categories after round 1 & 2', () => {
-      game.start();
-      expect(game.allData.length).to.equal(6);
-      //game.createRound();
-      //expect(game.allData.length).to.equal(2);
-    })
+  it('should have 4 less categories after round 1 & 2', () => {
+    game.start();
+    expect(game.allData.length).to.equal(6);
+    //game.createRound();
+    //expect(game.allData.length).to.equal(2);
+  })
 
-    it('should listen for clicks on game board', () => {
-      game.boardListener()
-      expect(domUpdates.gameBoardListener).to.have.been.called;
-    })
+  it('should listen for clicks on game board', () => {
+    game.boardListener()
+    expect(domUpdates.gameBoardListener).to.have.been.called;
+  })
 
 
 })
