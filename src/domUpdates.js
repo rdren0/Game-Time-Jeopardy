@@ -71,11 +71,13 @@ export default {
   $('.game').addClass('none');
   $('.clue').removeClass('none');
   var currentClue = `
-           <h1 class="question-area">${currentQuestion.question}</h1>
-            <h2>Please enter an answer</h2>
+          <section class="question-display">
+           <h1 class="question-title">"${currentQuestion.question} "</h1>
             <label>Answer:</label>
             <input>
-            <button>Submit Answer</button>`;
+            <br>
+            <button class="guess-button">Submit Answer</button>
+          </section>`;
           $(currentClue).appendTo('.clue');
       }
 }
