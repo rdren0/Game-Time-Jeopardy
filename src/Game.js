@@ -43,7 +43,7 @@ class Game {
   clueSet () {
     return this.allData.splice(0, 4);
   }
-  boardListerner (event) {
+  boardListener (event) {
     domUpdates.gameBoardListener(event, this);
   }
 }
