@@ -3,7 +3,9 @@ import domUpdates from './domUpdates.js';
 
 class Round {
   constructor(baseData) {
-    this.turnNum = 1;
+    this.players = [];
+    this.currentPlayer = 0;
+    this.turnNum = 0;
     this.currentClue = 0;
     this.baseData = baseData;
     this.roundClues = [[], [], [], []];
@@ -16,10 +18,22 @@ class Round {
         rndCat.push(this.baseData[ind].find(clue => clue.pointValue === value))
       })
     })
+    console.log(this);
     domUpdates.displayCategories(this);
+    this.setPlayer();
   }
   guessButton (e) {
-    domUpdates.checkGuess(e, this);
+    domUpdates.checkGuess(e, this, this.currentPlayer);
+  }
+
+  setPlayer(){
+    console.log(this.players);
+    this.currentPlayer = this.players[0];
+  }
+  playerSwitch(){
+    let lastPlayer = this.players.shift();
+    this.players = this.players.push(lastPlayer);
+    this.setPlayer();
   }
 
 }

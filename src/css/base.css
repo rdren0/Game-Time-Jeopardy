@@ -228,7 +228,8 @@ h4.player-name{
 }
 
 .correct-answer{
-  
+  z-index: 1;
+
 }
 
 
