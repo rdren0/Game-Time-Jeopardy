@@ -40,31 +40,26 @@ export default {
     let classItem = event.target.className;
     let currentQuestion; 
     let categoryIndex = event.target.classList[1];
-    console.log(categoryIndex);
     switch (true) {
     case classItem.includes('100-val'):
       currentQuestion = game.round.roundClues[categoryIndex][0];
       event.target.classList.add('question-used');
       this.addQuestionDom(currentQuestion);
-      console.log(currentQuestion);
       break;
     case classItem.includes('200-val'):
       currentQuestion = game.round.roundClues[categoryIndex][1];
       event.target.classList.add('question-used');
       this.addQuestionDom(currentQuestion);
-      console.log(currentQuestion);
       break;
     case classItem.includes('300-val'):
       currentQuestion = game.round.roundClues[categoryIndex][2];
       event.target.classList.add('question-used');
       this.addQuestionDom(currentQuestion);
-      console.log(currentQuestion);
       break;
     case classItem.includes('400-val'):
       currentQuestion = game.round.roundClues[categoryIndex][3];
       event.target.classList.add('question-used');
       this.addQuestionDom(currentQuestion);
-      console.log(currentQuestion);
       break;
     }
 

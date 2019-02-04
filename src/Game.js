@@ -37,14 +37,13 @@ class Game {
   }
   createRound () {
     let round = new Round(this.clueSet());
-    console.log(this.allData);
     this.round = round;
     round.sortClues(this);
   }
   clueSet () {
     return this.allData.splice(0, 4);
   }
-  boardListerner (event) {
+  boardListener (event) {
     domUpdates.gameBoardListener(event, this);
   }
 }

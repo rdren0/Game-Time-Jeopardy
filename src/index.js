@@ -23,6 +23,6 @@ $('.start-game').on('click', (e) => {
   game.start();
 });
 
-$('.box').on('click', (event) => {
-  game.boardListerner(event); 
+$('.box').on('click', (e) => {
+  game.boardListener(e); 
 });
