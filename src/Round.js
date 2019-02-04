@@ -18,21 +18,22 @@ class Round {
         rndCat.push(this.baseData[ind].find(clue => clue.pointValue === value))
       })
     })
-    console.log(this);
     domUpdates.displayCategories(this);
     this.setPlayer();
   }
-  guessButton (e) {
-    domUpdates.checkGuess(e, this, this.currentPlayer);
+  guessButton () {
+    domUpdates.checkGuess(this, this.currentPlayer);
   }
 
   setPlayer(){
-    console.log(this.players);
     this.currentPlayer = this.players[0];
   }
   playerSwitch(){
+    domUpdates.returnBoard();
     let lastPlayer = this.players.shift();
-    this.players = this.players.push(lastPlayer);
+    console.log(lastPlayer, this.players);
+    this.players.push(lastPlayer);
+    console.log(this.players)
     this.setPlayer();
   }
 
