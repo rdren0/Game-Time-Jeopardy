@@ -1,5 +1,7 @@
 import Game from './Game.js'
-import index from './index.js'
+import $ from 'jquery';
+
+// import index from './index.js'
 
 export default {
   grabNames () {
