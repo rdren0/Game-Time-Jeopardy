@@ -71,7 +71,7 @@ export default {
           <section class="question-display">
            <h1 class="question-title">"${currentQuestion.question} "</h1>
             <label>Answer:</label>
-            <input>
+            <input class="guess-text">
             <br>
             <button class="guess-button">Submit Answer</button>
           </section>`;
