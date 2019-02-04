@@ -80,7 +80,9 @@ export default {
             <br>
             <button class="guess-button">Submit Answer</button>
           </section>`;
-          $(currentClue).appendTo('.clue');
+          $(".clue").html(currentClue);
+
+
       }
 }
 
