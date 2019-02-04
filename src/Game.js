@@ -7,7 +7,7 @@ class Game {
   constructor() {
     this.round = 0;
     this.players = [];
-    this.allData = [[],[],[],[],[],[],[],[],[],[]];
+    this.allData = [[], [], [], [], [], [], [], [], [], []];
   }
   start() {
     this.createPlayers(domUpdates.grabNames());

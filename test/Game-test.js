@@ -20,13 +20,15 @@ describe('Game', () => {
   it('should have default properties', ()=>{
     expect(game.players).to.deep.equal([]);
     expect(game.round).to.equal(0);
-    expect(game.allData).to.deep.equal([[],[],[],[],[],[],[],[],[],[]]);
+    expect(game.allData).to.deep.equal([[], [], [], [], [], [], [], [], [], []]);
+
   })
 
   it('should create an array of 3 players', () =>{
     expect(game.players).to.deep.equal([]);
     game.createPlayers(['mike', 'jill', 'megan']);
     expect(game.players.length).to.equal(3);
+
     game.players.forEach((player, ind) => {
       expect(game.players[ind]).to.have.keys('name','score','turn','wager');
     })
