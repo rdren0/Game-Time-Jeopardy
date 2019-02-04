@@ -43,8 +43,10 @@ class Game {
   clueSet () {
     return this.allData.splice(0, 4);
   }
-  boardListener (event) {
-    domUpdates.gameBoardListener(event, this);
+  boardListener (e) {
+    console.log(e.target)
+    domUpdates.gameBoardListener(e, this)
+    ;
   }
 }
 

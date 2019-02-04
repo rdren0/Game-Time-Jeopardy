@@ -26,3 +26,10 @@ $('.start-game').on('click', (e) => {
 $('.box').on('click', (e) => {
   game.boardListener(e); 
 });
+
+$('.clue').on('click', (e) => {
+  console.log(event.target.className)
+  if (event.target.className === 'guess-button') {
+    game.round.guessButton(e);
+  }
+})
