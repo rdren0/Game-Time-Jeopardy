@@ -46,27 +46,65 @@ export default {
       event.target.classList.add('question-used');
       game.round.currentClue = currentQuestion;
       this.addQuestionDom(currentQuestion);
+      console.log(currentQuestion);
+      this.checkGuess(currentQuestion);
       break;
     case classItem.includes('200-val'):
       currentQuestion = game.round.roundClues[categoryIndex][1];
       event.target.classList.add('question-used');
       game.round.currentClue = currentQuestion;
       this.addQuestionDom(currentQuestion);
+      console.log(currentQuestion);
+      this.checkGuess(currentQuestion);
       break;
     case classItem.includes('300-val'):
       currentQuestion = game.round.roundClues[categoryIndex][2];
       event.target.classList.add('question-used');
       game.round.currentClue = currentQuestion;
       this.addQuestionDom(currentQuestion);
+      console.log(currentQuestion);
+      this.checkGuess(currentQuestion, round);
       break;
     case classItem.includes('400-val'):
       currentQuestion = game.round.roundClues[categoryIndex][3];
       event.target.classList.add('question-used');
       game.round.currentClue = currentQuestion;
       this.addQuestionDom(currentQuestion);
+      console.log(currentQuestion);
+      this.checkGuess(currentQuestion);
       break;
+      
+      
+
     }
 
+  },
+    checkGuess(currentQuestion) {
+      var correctAnswer = `<section class="question-display"><h1 class="question-title">"${currentQuestion.question} "</h1>
+            <h2>You are correct!</h2>
+            <label>Next Player?</label>
+            <input class="guess-text">
+            <br>
+            <button class="guess-button">Continue</button></section>`;
+      var wrongAnswer = `
+            <section class="question-display">
+            <h1 class="question-title">You guessed wrong!</h1>
+            <h2 class="correct-answer">The correct answer was <span>${currentQuestion.answer}</span></h2>
+            <label>Next Player?</label>
+            <input class="guess-text">
+            <br>
+            <button class="guess-button">Continue</button></section>`;
+      var questionAnswer = currentQuestion.answer.toLowerCase();
+      if(questionAnswer === $('.guess-text').value){
+        $('.clue').html(correctAnswer);
+        this.player.score += guess.pointValue;
+      } else if (questionAnswer !== $('.guess-text').value){
+        $('.clue').html(wrongAnswer);
+        this.player.score -= guess.pointValue;
+      }else{
+        alert("No answer given!")
+      }
+      
   },
   addQuestionDom(currentQuestion) {
     $('.game').addClass('none');
@@ -83,9 +121,6 @@ export default {
 
 
   },
-  checkGuess(e, round) {
-    
-  }
 }
 
 
