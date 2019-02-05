@@ -1,10 +1,10 @@
-// import Round from './Round.js';
+import Round from './Round.js';
 
-// class DailyDouble extends Round {
-//   constructor() {
-//     super();
-//   }
-// }
+class DailyDouble extends Round {
+  constructor() {
+    super();
+  }
+}
 
 
-// export default DailyDouble;
+export default DailyDouble;

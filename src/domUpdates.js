@@ -32,7 +32,7 @@ export default {
       $(`.cat-${ind}`).text(topics[catId])
     });
   },
-  gameBoardListener(event, game) {
+  gameBoardListener(event, game, wager) {
     if (event.target.tagName.toLowerCase() === 'h2') {
       event.target = event.target.parentElement
     }
@@ -67,6 +67,8 @@ export default {
     }
   },
   addQuestionDom(currentQuestion) {
+    console.log('heyo')
+
     $('.game').addClass('none');
     $('.clue').removeClass('none');
     var currentClue = `
@@ -99,10 +101,10 @@ export default {
     var questionAnswer = clue.answer.toLowerCase();
     if (questionAnswer === $('.guess-text').val().toLowerCase()) {
       $('.clue').html(correctAnswer);
-      player.score += clue.pointValue;
+      player.score += wager || clue.pointValue;
     } else {
       $('.clue').html(wrongAnswer);
-      player.score -= clue.pointValue;
+      player.score -= wager || clue.pointValue;
     }
     this.updateScores(round)
   },
@@ -119,6 +121,26 @@ export default {
   },
   newRound () {
     $('.box').removeClass('question-used');
+  },
+  dailyDouble (e, game) {
+    $('.game').addClass('none');
+    $('.clue').removeClass('none');
+    var wagerBubble = `
+          <section class="question-display">
+           <h1>DAILY DOUBLE!</h1>
+            <label>Wager:</label>
+            <input class="wager-text">
+            <br>
+            <button class="wager-button">Submit Wager</button>
+          </section>`;
+    $(".clue").html(wagerBubble);
+    setTimeout(this.wagerWait(e, game), 10000)
+  },
+  wagerWait (e, game) {
+    let wager = $('.wager-text').val();
+    $('.clue').addClass('none');
+    $('.game').removeClass('none');
+    this.gameBoardListener(e, game, wager);
   }
 }
 
