@@ -18,7 +18,6 @@ class Game {
     this.round.players = array.map(person => {
       return person = new Player(person);
     });
-    this.shuffle(this.round.players);
     domUpdates.loadGameBoard(this.round.players);
     this.round.sortClues(this);
   }

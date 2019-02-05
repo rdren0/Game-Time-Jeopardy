@@ -105,10 +105,18 @@ export default {
         $('.clue').html(wrongAnswer);
         player.score -= clue.pointValue;
       }
+      this.updateScores(round)
     },
     returnBoard() {
       $('.game').removeClass('none');
       $('.clue').addClass('none');
+    },
+    updateScores(round) {
+      round.players.forEach((player, ind) => {
+        $(`#player-${ind}-total`).html(`
+        <h4 class="player-score" id="player-${ind}-total">Score: ${player.score} </h4>
+        `);
+      })
     }
 }
 

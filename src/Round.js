@@ -10,6 +10,7 @@ class Round {
     this.baseData = baseData;
     this.roundClues = [[], [], [], []];
     this.pointValues = [100, 200, 300, 400];
+    this.playerInd = -1;
 
   }
   sortClues () {
@@ -26,13 +27,17 @@ class Round {
   }
 
   setPlayer(){
-    this.currentPlayer = this.players[0];
+    this.playerInd++
+    if (this.playerInd === 2) {
+      this.currentPlayer = this.players[0];
+      this.playerInd = -1;
+    } else {
+      this.currentPlayer = this.players[this.playerInd]
+    }
   }
   playerSwitch(){
+    this.setPlayer();
     domUpdates.returnBoard();
-    let lastPlayer = this.players.shift();
-    console.log(lastPlayer, this.players);
-    this.players.push(lastPlayer);
     console.log(this.players)
     this.setPlayer();
   }
