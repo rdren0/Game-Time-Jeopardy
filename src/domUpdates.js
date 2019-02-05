@@ -45,33 +45,26 @@ export default {
       event.target.classList.add('question-used');
       game.round.currentClue = currentQuestion;
       this.addQuestionDom(currentQuestion);
-      console.log(currentQuestion);
       break;
     case classItem.includes('200-val'):
       currentQuestion = game.round.roundClues[categoryIndex][1];
       event.target.classList.add('question-used');
       game.round.currentClue = currentQuestion;
       this.addQuestionDom(currentQuestion);
-      console.log(currentQuestion);
       break;
     case classItem.includes('300-val'):
       currentQuestion = game.round.roundClues[categoryIndex][2];
       event.target.classList.add('question-used');
       game.round.currentClue = currentQuestion;
       this.addQuestionDom(currentQuestion);
-      console.log(currentQuestion);
       break;
     case classItem.includes('400-val'):
       currentQuestion = game.round.roundClues[categoryIndex][3];
       event.target.classList.add('question-used');
       game.round.currentClue = currentQuestion;
       this.addQuestionDom(currentQuestion);
-      console.log(currentQuestion);
       break;
-      
-      this.checkGuess(currentQuestion);
     }
-
   },
   addQuestionDom(currentQuestion) {
     $('.game').addClass('none');
@@ -85,10 +78,8 @@ export default {
             <button class="guess-button">Submit Answer</button>
           </section>`;
     $(".clue").html(currentClue);
-
-
   },
-    checkGuess(e, round, player) {
+    checkGuess(round, player) {
       var clue = round.currentClue;
       var correctAnswer = `
             <section class="question-display">
@@ -109,13 +100,26 @@ export default {
       if(questionAnswer === $('.guess-text').val().toLowerCase()){
         $('.clue').html(correctAnswer);
         player.score += clue.pointValue;
-      } else if (questionAnswer !== $('.guess-text').val().toLowerCase()){
+      } else {
         $('.clue').html(wrongAnswer);
         player.score -= clue.pointValue;
-      }else{
-        console.log("No answer given!");
       }
+      this.updateScores(round)
+    },
+    returnBoard() {
+      $('.game').removeClass('none');
+      $('.clue').addClass('none');
+    },
+    updateScores(round) {
+      round.players.forEach((player, ind) => {
+        $(`#player-${ind}-total`).html(`
+        <h4 class="player-score" id="player-${ind}-total">Score: ${player.score} </h4>
+        `);
+      })
     }
+    // newRound () {
+    //   $('.box').removeClass('question-used');
+    // }
 }
 
 

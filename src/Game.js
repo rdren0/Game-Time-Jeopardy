@@ -18,7 +18,6 @@ class Game {
     this.round.players = array.map(person => {
       return person = new Player(person);
     });
-    this.shuffle(this.round.players);
     domUpdates.loadGameBoard(this.round.players);
     this.round.sortClues(this);
   }
@@ -36,8 +35,16 @@ class Game {
     return a.sort(() => 0.5 - Math.random());
   }
   createRound () {
-    let round = new Round(this.clueSet());
-    this.round = round;
+    let round;
+    if (!round) {
+      round = new Round(this.clueSet());
+      this.round = round;
+    } else {
+      round = new Round(this.clueSet(), players)
+      this.round = round;
+      domUpdates.newRound();
+      this.round.sortClues(this)
+    }
   }
   clueSet () {
     return this.allData.splice(0, 4);

@@ -2,15 +2,16 @@ import Game from './Game.js'
 import domUpdates from './domUpdates.js';
 
 class Round {
-  constructor(baseData) {
-    this.players = [];
+  constructor(baseData, players = []) {
+    this.players = players;
     this.currentPlayer = 0;
     this.turnNum = 0;
     this.currentClue = 0;
     this.baseData = baseData;
     this.roundClues = [[], [], [], []];
     this.pointValues = [100, 200, 300, 400];
-
+    this.playerInd = -1;
+    this.turn = 3;
   }
   sortClues () {
     this.roundClues.forEach((rndCat, ind) => {
@@ -18,24 +19,29 @@ class Round {
         rndCat.push(this.baseData[ind].find(clue => clue.pointValue === value))
       })
     })
-    console.log(this);
     domUpdates.displayCategories(this);
     this.setPlayer();
   }
-  guessButton (e) {
-    domUpdates.checkGuess(e, this, this.currentPlayer);
+  guessButton () {
+    domUpdates.checkGuess(this, this.currentPlayer);
   }
-
   setPlayer(){
-    console.log(this.players);
-    this.currentPlayer = this.players[0];
+    this.playerInd++
+    if (this.playerInd === 3) {
+      this.currentPlayer = this.players[0];
+      this.playerInd = -1;
+    } else {
+      this.currentPlayer = this.players[this.playerInd]
+    }
   }
-  playerSwitch(){
-    let lastPlayer = this.players.shift();
-    this.players = this.players.push(lastPlayer);
+  playerSwitch(game){
+    this.turn--;
     this.setPlayer();
+    domUpdates.returnBoard();
+    if (this.turn === 0) {
+      game.createRound(this.players);
+    }
   }
-
 }
 
 export default Round;

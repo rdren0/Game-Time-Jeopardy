@@ -28,8 +28,11 @@ $('.box').on('click', (e) => {
 });
 
 $('.clue').on('click', (e) => {
-  console.log(event.target.className)
-  if (event.target.className === 'guess-button') {
-    game.round.guessButton(e);
+  let click = event.target.className;
+  if (click === 'guess-button') {
+    game.round.guessButton();
+  }
+  if (click === 'next-player') {
+    game.round.playerSwitch(game);
   }
 })
