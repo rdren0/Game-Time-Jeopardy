@@ -33,6 +33,8 @@ export default {
     });
   },
   gameBoardListener(event, game) {
+    var counter = `<button class="turn-button">Turns Left:${(game.round.turn - 1)}</button>`;
+    $('.turn-area').html(counter);
     if (event.target.tagName.toLowerCase() === 'h2') {
       event.target = event.target.parentElement
     }
@@ -130,9 +132,9 @@ export default {
     $('.clue').removeClass('none');
     var wagerBubble = `
           <section class="question-display">
-           <h1>DAILY DOUBLE!</h1>
-            <label>Wager:</label>
-            <input class="wager-text">
+           <h1 class="daily-double">DAILY DOUBLE!</h1>
+            <label>Your Wager:</label>
+            <input type="number" class="wager-text">
             <br>
             <button class="wager-button">Submit Wager</button>
           </section>`;
