@@ -11,7 +11,7 @@ class Round {
     this.roundClues = [[], [], [], []];
     this.pointValues = [100, 200, 300, 400];
     this.playerInd = -1;
-    this.turn = 3;
+    this.turn = 12;
   }
   sortClues () {
     this.roundClues.forEach((rndCat, ind) => {
@@ -35,6 +35,7 @@ class Round {
     }
   }
   playerSwitch(game){
+    console.log(this.turn)
     this.turn--;
     this.setPlayer();
     domUpdates.returnBoard();
