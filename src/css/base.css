@@ -202,11 +202,14 @@ h4.player-name{
   font-size: 20px;
   text-align: center;
   z-index: 2;
+
 }
 
 .box:hover{
   background-color: white;
   color: black;
+  box-shadow: 5px 2px 2px black;
+
 }
 
 .question-used {
