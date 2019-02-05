@@ -83,7 +83,7 @@ export default {
     var clue = round.currentClue;
     var correctAnswer = `
             <section class="question-display">
-            <h2 class="correct-answer">You are correct!</h2>
+            <h2 class="correct-answer">You are correct!<br>Woot!</h2>
             <label>Next Player?</label>
             <br>
             <button class="next-player">Continue</button>
@@ -91,7 +91,7 @@ export default {
     var wrongAnswer = `
             <section class="question-display">
             <h1 class="question-title">You guessed wrong!</h1>
-            <h2 class="correct-answer">The correct answer was <span>${clue.answer}</span></h2>
+            <h2 class="correct-answer">The correct answer was: <br><span>${clue.answer}</span></h2>
             <label>Next Player?</label>
             <br>
             <button class="next-player">Continue</button>
