@@ -6,6 +6,7 @@ import data from './data.js'
 class Game {
   constructor() {
     this.round = 0;
+    this.roundCount = 0;
     this.allData = [[], [], [], [], [], [], [], [], [], []];
   }
   start() {
@@ -34,17 +35,19 @@ class Game {
   shuffle (a) {
     return a.sort(() => 0.5 - Math.random());
   }
-  createRound () {
+  createRound (players) {
     let round;
+    this.roundCount++
     if (!this.round ) {
       round = new Round(this.clueSet());
       this.round = round;
-    } else {
-      console.log(this.allData)
-      round = new Round(this.clueSet(), this.players)
+    } else if (this.roundCount === 2) {
+      round = new Round(this.clueSet(), players)
       this.round = round;
       domUpdates.newRound();
       round.sortClues()
+    } else {
+      //round 2
     }
   }
   clueSet () {
