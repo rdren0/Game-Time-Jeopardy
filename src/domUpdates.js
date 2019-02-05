@@ -32,10 +32,11 @@ export default {
       $(`.cat-${ind}`).text(topics[catId])
     });
   },
-  gameBoardListener(event, game, wager) {
+  gameBoardListener(event, game) {
     if (event.target.tagName.toLowerCase() === 'h2') {
       event.target = event.target.parentElement
     }
+    console.log('switch')
     let classItem = event.target.className;
     let currentQuestion; 
     let categoryIndex = event.target.classList[1];
@@ -67,7 +68,7 @@ export default {
     }
   },
   addQuestionDom(currentQuestion) {
-    console.log('heyo')
+    console.log('add question')
 
     $('.game').addClass('none');
     $('.clue').removeClass('none');
@@ -81,7 +82,7 @@ export default {
           </section>`;
     $(".clue").html(currentClue);
   },
-  checkGuess(round, player) {
+  checkGuess(round, player, wager) {
     var clue = round.currentClue;
     var correctAnswer = `
             <section class="question-display">
@@ -123,6 +124,8 @@ export default {
     $('.box').removeClass('question-used');
   },
   dailyDouble (e, game) {
+    console.log('dom dd')
+
     $('.game').addClass('none');
     $('.clue').removeClass('none');
     var wagerBubble = `
@@ -134,12 +137,21 @@ export default {
             <button class="wager-button">Submit Wager</button>
           </section>`;
     $(".clue").html(wagerBubble);
-    setTimeout(this.wagerWait(e, game), 10000)
+    game.round.wager = $('.wager-text').val();
+    // $('.wager-button').on('click', this.wagerWait(e, game, game.round.wager))
+    let that = this;
+    $('.wager-button').on('click', () => {
+      return that.wagerWait(e, game, game.round.wager)
+    })
+    // setTimeout(this.wagerWait, 10000, e, game)
   },
-  wagerWait (e, game) {
-    let wager = $('.wager-text').val();
+  wagerWait (e, game, wager) {
+    console.log('ww')
+    // game.round.wager = $('.wager-text').val();
     $('.clue').addClass('none');
     $('.game').removeClass('none');
+    console.log(game.round.wager)
+    console.log(this)
     this.gameBoardListener(e, game, wager);
   }
 }
