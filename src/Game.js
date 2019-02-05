@@ -36,14 +36,15 @@ class Game {
   }
   createRound () {
     let round;
-    if (!round) {
+    if (!this.round ) {
       round = new Round(this.clueSet());
       this.round = round;
     } else {
-      round = new Round(this.clueSet(), players)
+      console.log(this.allData)
+      round = new Round(this.clueSet(), this.players)
       this.round = round;
       domUpdates.newRound();
-      this.round.sortClues(this)
+      round.sortClues()
     }
   }
   clueSet () {

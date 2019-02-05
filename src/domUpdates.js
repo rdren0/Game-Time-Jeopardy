@@ -44,24 +44,28 @@ export default {
       currentQuestion = game.round.roundClues[categoryIndex][0];
       event.target.classList.add('question-used');
       game.round.currentClue = currentQuestion;
+      console.log(currentQuestion);
       this.addQuestionDom(currentQuestion);
       break;
-    case classItem.includes('200-val'):
+      case classItem.includes('200-val'):
       currentQuestion = game.round.roundClues[categoryIndex][1];
       event.target.classList.add('question-used');
       game.round.currentClue = currentQuestion;
+      console.log(currentQuestion);
       this.addQuestionDom(currentQuestion);
       break;
-    case classItem.includes('300-val'):
+      case classItem.includes('300-val'):
       currentQuestion = game.round.roundClues[categoryIndex][2];
       event.target.classList.add('question-used');
       game.round.currentClue = currentQuestion;
+      console.log(currentQuestion);
       this.addQuestionDom(currentQuestion);
       break;
-    case classItem.includes('400-val'):
+      case classItem.includes('400-val'):
       currentQuestion = game.round.roundClues[categoryIndex][3];
       event.target.classList.add('question-used');
       game.round.currentClue = currentQuestion;
+      console.log(currentQuestion);
       this.addQuestionDom(currentQuestion);
       break;
     }
@@ -116,10 +120,10 @@ export default {
         <h4 class="player-score" id="player-${ind}-total">Score: ${player.score} </h4>
         `);
       })
+    },
+    newRound () {
+      $('.box').removeClass('question-used');
     }
-    // newRound () {
-    //   $('.box').removeClass('question-used');
-    // }
 }
 
 
