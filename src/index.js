@@ -33,6 +33,6 @@ $('.clue').on('click', (e) => {
     game.round.guessButton();
   }
   if (click === 'next-player') {
-    game.round.playerSwitch();
+    game.round.playerSwitch(game);
   }
 })

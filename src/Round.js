@@ -2,8 +2,8 @@ import Game from './Game.js'
 import domUpdates from './domUpdates.js';
 
 class Round {
-  constructor(baseData) {
-    this.players = [];
+  constructor(baseData, players = []) {
+    this.players = players;
     this.currentPlayer = 0;
     this.turnNum = 0;
     this.currentClue = 0;
@@ -11,7 +11,7 @@ class Round {
     this.roundClues = [[], [], [], []];
     this.pointValues = [100, 200, 300, 400];
     this.playerInd = -1;
-    this.turn = 12;
+    this.turn = 3;
   }
   sortClues () {
     this.roundClues.forEach((rndCat, ind) => {
@@ -34,10 +34,13 @@ class Round {
       this.currentPlayer = this.players[this.playerInd]
     }
   }
-  playerSwitch(){
+  playerSwitch(game){
     this.turn--;
     this.setPlayer();
     domUpdates.returnBoard();
+    if (this.turn === 0) {
+      game.createRound(this.players);
+    }
   }
 }
 

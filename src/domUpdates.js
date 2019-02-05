@@ -63,7 +63,6 @@ export default {
       event.target.classList.add('question-used');
       game.round.currentClue = currentQuestion;
       this.addQuestionDom(currentQuestion);
-      console.log(currentQuestion);
       break;
     }
   },
@@ -118,6 +117,9 @@ export default {
         `);
       })
     }
+    // newRound () {
+    //   $('.box').removeClass('question-used');
+    // }
 }
 
 
