@@ -27,7 +27,7 @@ $('.box').on('click', (e) => {
   game.boardListener(e); 
 });
 
-$('.clue').on('click', (e) => {
+$('.clue').on('click', () => {
   let click = event.target.className;
   if (click === 'guess-button') {
     game.round.guessButton();

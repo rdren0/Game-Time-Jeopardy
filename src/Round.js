@@ -25,7 +25,7 @@ class Round {
   guessButton () {
     domUpdates.checkGuess(this, this.currentPlayer);
   }
-  setPlayer(){
+  setPlayer() {
     this.playerInd++
     if (this.playerInd === 3) {
       this.currentPlayer = this.players[0];
@@ -34,8 +34,7 @@ class Round {
       this.currentPlayer = this.players[this.playerInd]
     }
   }
-  playerSwitch(game){
-    console.log(this.turn)
+  playerSwitch(game) {
     this.turn--;
     this.setPlayer();
     domUpdates.returnBoard();
