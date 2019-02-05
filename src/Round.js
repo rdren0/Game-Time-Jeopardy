@@ -11,8 +11,9 @@ class Round {
     this.roundClues = [[], [], [], []];
     this.pointValues = [100, 200, 300, 400];
     this.playerInd = -1;
-    this.turn = 12;
+    this.turn = 3;
     this.dDouble = undefined; 
+    this.wager = undefined;
   }
   sortClues () {
     this.roundClues.forEach((rndCat, ind) => {
@@ -25,7 +26,7 @@ class Round {
     this.dDouble = this.ddTurn()
   }
   guessButton () {
-    domUpdates.checkGuess(this, this.currentPlayer);
+    domUpdates.checkGuess(this, this.currentPlayer,this.wager);
   }
   setPlayer() {
     this.playerInd++
@@ -50,6 +51,7 @@ class Round {
     return dd;
   }
   dailyDouble (e, game) {
+    console.log('round dd')
     domUpdates.dailyDouble(e, game);
   }
 }

@@ -54,6 +54,8 @@ class Game {
     return this.allData.splice(0, 4);
   }
   boardListener (e) {
+    console.log('game board')
+
     domUpdates.gameBoardListener(e, this)
     ;
   }
