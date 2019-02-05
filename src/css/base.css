@@ -230,6 +230,8 @@ h4.player-name{
 .guess-text{
   margin-bottom: 5px;
 }
+.turn-button,
+.wager-button,
 .next-player,
 .guess-button{
   font-size: 20px;
@@ -258,6 +260,12 @@ h4.player-name{
   height: 40px;
   border: 3px solid black;
   border-radius: 5px;
+}
+
+.daily-double{
+  font-size: 40px;
+  text-shadow: 2px 1px 1px yellow;
+  text-decoration: underline;
 }
 
 
