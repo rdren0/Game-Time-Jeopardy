@@ -11,7 +11,7 @@ class Round {
     this.roundClues = [[], [], [], []];
     this.pointValues = [100, 200, 300, 400];
     this.playerInd = -1;
-
+    this.turn = 12;
   }
   sortClues () {
     this.roundClues.forEach((rndCat, ind) => {
@@ -25,10 +25,9 @@ class Round {
   guessButton () {
     domUpdates.checkGuess(this, this.currentPlayer);
   }
-
   setPlayer(){
     this.playerInd++
-    if (this.playerInd === 2) {
+    if (this.playerInd === 3) {
       this.currentPlayer = this.players[0];
       this.playerInd = -1;
     } else {
@@ -36,12 +35,10 @@ class Round {
     }
   }
   playerSwitch(){
+    this.turn--;
     this.setPlayer();
     domUpdates.returnBoard();
-    console.log(this.players)
-    this.setPlayer();
   }
-
 }
 
 export default Round;
