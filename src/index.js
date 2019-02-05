@@ -24,11 +24,16 @@ $('.start-game').on('click', (e) => {
 });
 
 $('.box').on('click', (e) => {
+  if (game.round.turn === game.round.dDouble) {
+    game.round.dailyDouble(e, game);
+  } else {
   game.boardListener(e); 
+  }
 });
 
 $('.clue').on('click', () => {
   let click = event.target.className;
+  
   if (click === 'guess-button') {
     game.round.guessButton();
   }
