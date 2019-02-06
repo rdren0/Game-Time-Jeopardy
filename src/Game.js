@@ -1,7 +1,9 @@
 import Player from './Player.js'
 import domUpdates from './domUpdates.js';
 import Round from './Round.js';
-import data from './data.js'
+import data from './data.js';
+import RoundThree from './RoundThree.js';
+
 
 class Game {
   constructor() {
@@ -37,7 +39,8 @@ class Game {
   }
   createRound (players) {
     let round;
-    this.roundCount++
+    this.roundCount++;
+    domUpdates.updateGameInfo(this);
     if (!this.round ) {
       round = new Round(this.clueSet());
       this.round = round;
@@ -48,7 +51,11 @@ class Game {
       round.sortClues();
       console.log('rnd cnt', this.roundCount)
     } else {
-      this.round = new RoundThree(this.baseData, players)
+
+      this.round = new RoundThree(this.allData, players)
+      this.round.grabClue(this.round);
+      this.round.displayRound()
+      console.log(this);
     }
   }
   clueSet () {

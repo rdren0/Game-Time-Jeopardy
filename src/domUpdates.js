@@ -138,23 +138,19 @@ export default {
             <button class="wager-button">Submit Wager</button>
           </section>`;
     $(".clue").html(wagerBubble);
-    // $('.wager-button').on('click', this.wagerWait(e, game, game.round.wager))
     let that = this;
     $('.wager-button').on('click', () => {
       game.round.wager = $('.wager-text').val();
 
       $('.clue').addClass('none');
       $('.game').removeClass('none');
-      // return that.wagerWait(e, game, wager)
       that.gameBoardListener(e, game);
     })
-    // setTimeout(this.wagerWait, 10000, e, game)
   },
-  wagerWait (e, game, wager) {
-    // game.round.wager = $('.wager-text').val();
+  wagerWait(e, game, wager) {
     console.log(wager)
   },
-  updateGameInfo (game) {
+  updateGameInfo(game) {
     let counter = `<button class="turn-button">Turns Left:${(game.round.turn - 1)}</button>`;
     $('.turn-area').html(counter);
     let roundBtn = `<button class="round-button">Current Round ${game.roundCount}</button></section>`;
@@ -163,6 +159,45 @@ export default {
   }, 
   resetGame () {
     location.reload();
+  },
+  roundThree(round){
+    var finalWager = `<section class="final-question-display">
+      <h1>FINAL JEOPARDY</h1>
+      <h4 class="cat-0"></h4>
+      <p>PLACE YOUR BETS!</p>
+      <div class= "final-wager-input">
+        <label class="player-0"></label>
+        <input class="player 0 guess">
+        <label class="player-1"></label>
+        <input class="player 1 guess">
+        <label class="player-2"></label>
+        <input class="player 2 guess">
+      </div>
+      <button class="final-wager-button">Submit Wager</button>
+    </section>`;
+    $('.question-box-area').html(finalWager);
+    let that = this;
+    $('.final-wager-button').on('click', () => {
+      this.roundThreeQuestion(round);
+    })
+  },
+  roundThreeQuestion(round){
+    var finalQuestion = 
+    `<section class="question-display">
+    <h1>FINAL JEOPARDY</h1>
+    <h4 class="cat-0">${round.finalClue.question}</h4>
+    <p>Your answers:</p>
+    <div>
+      <label class="player-0"></label>
+      <input type="password" class="player 0 guess">
+      <label class="player-1"></label>
+      <input type="password" class="player 1 guess">
+      <label class="player-2"></label>
+      <input type="password" class="player 2 guess">
+    </div>
+      <button class="final-submit-button">SUBMIT</button>
+    </section>`;
+    $('.question-box-area').html(finalQuestion);
   }
 }
 

@@ -1,20 +1,21 @@
 import Round from './Round.js';
+import domUpdates from './domUpdates.js';
 
 class RoundThree extends Round {
-  constructor(baseData, players = []) {
-    super(baseData, players = []);
+  constructor(baseData, players) {
+    super(baseData, players);
     this.finalClue = 0;
-    this.roundClues = this.baseData;
     this.wagers = [];
   }
   grabClue () {
-    // this.roundClues.splice(0,1)
-    // this.finalClue = this.roundClues[0][5];
-    // domUpdates.roundThree();
-    // domUpdates.displayCategories(this)
-    
+    this.roundClues = this.baseData.splice(0,1)
+    this.finalClue = this.roundClues[0].find(clue => clue.pointValue === 400);
+    console.log(this)
+
   }
-  displayClue () {
+  displayRound () {
+    domUpdates.roundThree(this);
+    domUpdates.displayCategories(this)
     // display clue and guess inputs
   }
   displayAnswer () {
@@ -26,4 +27,4 @@ class RoundThree extends Round {
 }
 
 
-export default DailyDouble;
+export default RoundThree;
