@@ -45,7 +45,8 @@ class Game {
       round = new Round(this.clueSet(), players)
       this.round = round;
       domUpdates.newRound();
-      round.sortClues()
+      round.sortClues();
+      console.log('rnd cnt', this.roundCount)
     } else {
       //round 2
     }
@@ -54,7 +55,7 @@ class Game {
     return this.allData.splice(0, 4);
   }
   boardListener (e) {
-    console.log('game board')
+    console.log(this.round.dDouble);
     domUpdates.gameBoardListener(e, this);
     domUpdates.updateGameInfo(this);
   }

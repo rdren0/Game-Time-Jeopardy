@@ -40,7 +40,7 @@ $('.clue').on('click', () => {
     game.round.guessButton();
   }
   if (click === 'next-player') {
-    game.round.playerSwitch(game);
+    game.round.gameRotation(game);
   }
 })
 

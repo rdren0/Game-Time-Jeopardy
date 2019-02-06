@@ -36,7 +36,6 @@ export default {
     if (event.target.tagName.toLowerCase() === 'h2') {
       event.target = event.target.parentElement
     }
-    console.log('switch')
     let classItem = event.target.className;
     let currentQuestion; 
     let categoryIndex = event.target.classList[1];
@@ -82,8 +81,9 @@ export default {
           </section>`;
     $(".clue").html(currentClue);
   },
-  checkGuess(round, player, wager) {
+  checkGuess(round, player) {
     var clue = round.currentClue;
+    let wager = round.wager;
     var correctAnswer = `
             <section class="question-display">
             <h2 class="correct-answer">You are correct!<br>Woot!</h2>
@@ -103,9 +103,11 @@ export default {
     if (questionAnswer === $('.guess-text').val().toLowerCase()) {
       $('.clue').html(correctAnswer);
       player.score += wager || clue.pointValue;
+      round.wager = undefined;
     } else {
       $('.clue').html(wrongAnswer);
       player.score -= wager || clue.pointValue;
+      round.wager = undefined;
     }
     this.updateScores(round)
   },
@@ -124,7 +126,6 @@ export default {
     $('.box').removeClass('question-used');
   },
   dailyDouble (e, game) {
-    console.log('dom dd')
 
     $('.game').addClass('none');
     $('.clue').removeClass('none');
@@ -137,22 +138,21 @@ export default {
             <button class="wager-button">Submit Wager</button>
           </section>`;
     $(".clue").html(wagerBubble);
-    game.round.wager = $('.wager-text').val();
     // $('.wager-button').on('click', this.wagerWait(e, game, game.round.wager))
     let that = this;
     $('.wager-button').on('click', () => {
-      return that.wagerWait(e, game, game.round.wager)
+      game.round.wager = $('.wager-text').val();
+
+      $('.clue').addClass('none');
+      $('.game').removeClass('none');
+      // return that.wagerWait(e, game, wager)
+      that.gameBoardListener(e, game);
     })
     // setTimeout(this.wagerWait, 10000, e, game)
   },
   wagerWait (e, game, wager) {
-    console.log('ww')
     // game.round.wager = $('.wager-text').val();
-    $('.clue').addClass('none');
-    $('.game').removeClass('none');
-    console.log(game.round.wager)
-    console.log(this)
-    this.gameBoardListener(e, game, wager);
+    console.log(wager)
   },
   updateGameInfo (game) {
     let counter = `<button class="turn-button">Turns Left:${(game.round.turn - 1)}</button>`;
