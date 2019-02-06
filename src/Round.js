@@ -10,7 +10,7 @@ class Round {
     this.roundClues = [[], [], [], []];
     this.pointValues = [100, 200, 300, 400];
     this.playerInd = -1;
-    this.turn = 12;
+    this.turn = 1;
     this.dDouble = undefined; 
     this.wager = undefined;
     this.ddCount = 0;

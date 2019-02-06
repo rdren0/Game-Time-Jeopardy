@@ -49,13 +49,11 @@ class Game {
       this.round = round;
       domUpdates.newRound();
       round.sortClues();
-      console.log('rnd cnt', this.roundCount)
     } else {
-
-      this.round = new RoundThree(this.allData, players)
+      this.round = new RoundThree(this.allData, players);
       this.round.grabClue(this.round);
-      this.round.displayRound()
-      console.log(this);
+      this.round.displayRound();
+      domUpdates.updateGameInfo(this);
     }
   }
   clueSet () {
