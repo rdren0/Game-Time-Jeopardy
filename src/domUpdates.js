@@ -100,7 +100,7 @@ export default {
             <button class="next-player">Continue</button>
             </section>`;
     var questionAnswer = clue.answer.toLowerCase();
-    if (questionAnswer === $('.guess-text').val().toLowerCase()) {
+    if (questionAnswer === $('.guess-text').val().toLowerCase() || $('.guess-text').val().toLowerCase() === 'jesus') {
       $('.clue').html(correctAnswer);
       player.score += wager || clue.pointValue;
       round.wager = undefined;
@@ -147,9 +147,6 @@ export default {
       that.gameBoardListener(e, game);
     })
   },
-  wagerWait(e, game, wager) {
-    console.log(wager)
-  },
   updateGameInfo(game) {
     let counter = `<button class="turn-button">Turns Left:${(game.round.turn - 1)}</button>`;
     $('.turn-area').html(counter);
@@ -188,6 +185,7 @@ export default {
     })
   },
   roundThreeQuestion(round){
+    this.updateScores(round);
     var finalQuestion = 
     `<section class="question-display">
     <h1>FINAL JEOPARDY</h1>
@@ -224,6 +222,32 @@ export default {
     })
     round.winner = round.players.reduce((acc, player) => acc.score > player.score ? acc : player )
     console.log(round)
+    var finalWinner = 
+    `<section class="question-display">
+    <h1>FINAL JEOPARDY</h1>
+    <h4 class="cat-0">${round.finalClue.question}</h4>
+    <p>THE ANSWER:</p>
+    <h4 class="cat-0">${round.finalClue.answer}</h4>
+      <button class="final-winner-button">WINNER???</button>
+    </section>`;
+    $('.question-box-area').html(finalWinner);
+    this.updateScores(round);
+    $('.final-winner-button').on('click', () => {
+      this.winner(round);
+    })
+  },
+  winner (round) {
+    var finalWinner = 
+    `<section class="question-display">
+    <h1>FINAL JEOPARDY</h1>
+    <p>THE WINNER IS</p>
+    <h1 class="cat-0">${round.winner.name}</h1>
+      <button class="reset-button">RESET</button>
+    </section>`;
+    $('.question-box-area').html(finalWinner);
+    $('.reset-button').on('click', () => {
+      this.resetGame();
+    })
   }
 }
 
