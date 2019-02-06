@@ -119,7 +119,7 @@ export default {
     round.players.forEach((player, ind) => {
       $(`#player-${ind}-total`).html(`
         <h4 class="player-score" id="player-${ind}-total">Score: ${player.score} </h4>
-        `);
+      `);
     })
   },
   newRound () {

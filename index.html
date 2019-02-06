@@ -1,101 +1,154 @@
 <!DOCTYPE html>
 <html lang="en-US">
-    <head>
-        <title>Devin and Rachael's JEOPARDY</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
-    </head>
-    <body>
-      <section class="intro-page">
-        <h1 class="jeopardy-logo">JEOPARDY</h1>
-        <section class="welcome-page">
-            <section class="player-intro">
-              <img class= "intro-img" src="/images/player1.svg">
-              <br>
-            <label for ="player1">PLAYER ONE</label>
-            <br>
-            <input type="text" name="name1" id="player1" class="player one" placeholder="Player 1">
-            </section>
-            <section class="player-intro">
-              <img class= "intro-img" src="/images/player2.svg">
-              <br>
-            <label for ="player2">PLAYER TWO</label>
-            <br>
-            <input type="text" name="name1" id="player2" class="player two" placeholder="Player 2">
-            </section>
-            <section class="player-intro">
-              <img class= "intro-img" src="/images/player3.svg">
-              <br>
-            <label for ="player3">PLAYER THREE</label>
-            <br>
-            <input type="text" name="name1" id="player3" class="player three" placeholder="Player 3">
-            </section>
-            <br>
-            <button class="start-game">START</button>
-        </section>
+
+<head>
+  <title>Devin and Rachael's JEOPARDY</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
+</head>
+
+<body>
+  <section class="intro-page">
+    <h1 class="jeopardy-logo">JEOPARDY</h1>
+    <section class="welcome-page">
+      <section class="player-intro">
+        <img class="intro-img" src="/images/player1.svg">
+        <br>
+        <label for="player1">PLAYER ONE</label>
+        <br>
+        <input type="text" name="name1" id="player1" class="player one" placeholder="Player 1">
       </section>
-      <section class="game none">
-        <section>
-          <section class="categories-container">
-            <div class="categories-box cat-0"><h3>Topic 1</h3></div>
-            <div class="categories-box cat-1"><h3>Topic 2</h3></div>
-            <div class="categories-box cat-2"><h3>Topic 3</h3></div>
-            <div class="categories-box cat-3"><h3>Topic 4</h3></div>
-          </section>
-          <section class="questions-container">
-            <div class="100-val 0 box"><h2>100</h2></div>
-            <div class="200-val 0 box"><h2>200</h2></div>
-            <div class="300-val 0 box"><h2>300</h2></div>
-            <div class="400-val 0 box"><h2>400</h2></div>
-            <div class="100-val 1 box"><h2>100</h2></div>
-            <div class="200-val 1 box"><h2>200</h2></div>
-            <div class="300-val 1 box"><h2>300</h2></div>
-            <div class="400-val 1 box"><h2>400</h2></div>
-            <div class="100-val 2 box"><h2>100</h2></div>
-            <div class="200-val 2 box"><h2>200</h2></div>
-            <div class="300-val 2 box"><h2>300</h2></div>
-            <div class="400-val 2 box"><h2>400</h2></div>
-            <div class="100-val 3 box"><h2>100</h2></div>
-            <div class="200-val 3 box"><h2>200</h2></div>
-            <div class="300-val 3 box"><h2>300</h2></div>
-            <div class="400-val 3 box"><h2>400</h2></div>
-          </section>
-        </section>
-        <section class="player-area">
-          <article id="player1" class="player-square">
-            <img class= "player-img" src="/images/player1.svg">
-            <h4 id="player1-name-text"  class="player-name reset">PLAYER 1 NAME</h4>
-            <h4  class="player-score" id="player-0-total">Score: 0 </h4>
-          </article>
-          <article id="player2" class="player-square">
-            <img class= "player-img" src="/images/player2.svg">
-            <h4 id="player2-name-text"  class="player-name">PLAYER 2 NAME</h4>
-            <h4 class="player-score" id="player-1-total">Score: 0 </h4>
-          </article>
-          <article id="player3" class="player-square">
-            <img class= "player-img" src="/images/player3.svg">
-            <h4 id="player3-name-text" class="player-name">PLAYER 3 NAME</h4>
-            <h4 class="player-score" id="player-2-total">Score: 0 </h4>
-          </article>
-        </section>
-        <section class="bottom-button-area">
-          <div class="turn-area">
-          <button class="turn-button">Turns left: 12</button>
-          </div>
-          <div>
-          <button class="reset-button">RESET GAME</button>
-          </div>
-          <div class="current-round">
-            <button class="round-button">Current Round 1</button>
-          </div>
+      <section class="player-intro">
+        <img class="intro-img" src="/images/player2.svg">
+        <br>
+        <label for="player2">PLAYER TWO</label>
+        <br>
+        <input type="text" name="name1" id="player2" class="player two" placeholder="Player 2">
+      </section>
+      <section class="player-intro">
+        <img class="intro-img" src="/images/player3.svg">
+        <br>
+        <label for="player3">PLAYER THREE</label>
+        <br>
+        <input type="text" name="name1" id="player3" class="player three" placeholder="Player 3">
+      </section>
+      <br>
+      <button class="start-game">START</button>
+    </section>
+  </section>
+  <section class="game none">
+    <section>
+      <section class="categories-container">
+        <div class="categories-box cat-0">
+          <h3>Topic 1</h3>
+        </div>
+        <div class="categories-box cat-1">
+          <h3>Topic 2</h3>
+        </div>
+        <div class="categories-box cat-2">
+          <h3>Topic 3</h3>
+        </div>
+        <div class="categories-box cat-3">
+          <h3>Topic 4</h3>
+        </div>
+      </section>
+      <section class="questions-container">
+        <div class="100-val 0 box">
+          <h2>100</h2>
+        </div>
+        <div class="200-val 0 box">
+          <h2>200</h2>
+        </div>
+        <div class="300-val 0 box">
+          <h2>300</h2>
+        </div>
+        <div class="400-val 0 box">
+          <h2>400</h2>
+        </div>
+        <div class="100-val 1 box">
+          <h2>100</h2>
+        </div>
+        <div class="200-val 1 box">
+          <h2>200</h2>
+        </div>
+        <div class="300-val 1 box">
+          <h2>300</h2>
+        </div>
+        <div class="400-val 1 box">
+          <h2>400</h2>
+        </div>
+        <div class="100-val 2 box">
+          <h2>100</h2>
+        </div>
+        <div class="200-val 2 box">
+          <h2>200</h2>
+        </div>
+        <div class="300-val 2 box">
+          <h2>300</h2>
+        </div>
+        <div class="400-val 2 box">
+          <h2>400</h2>
+        </div>
+        <div class="100-val 3 box">
+          <h2>100</h2>
+        </div>
+        <div class="200-val 3 box">
+          <h2>200</h2>
+        </div>
+        <div class="300-val 3 box">
+          <h2>300</h2>
+        </div>
+        <div class="400-val 3 box">
+          <h2>400</h2>
+        </div>
       </section>
     </section>
-              
-       </section>
-       <section class="clue">
+    <section class="player-area">
+      <article id="player1" class="player-square">
+        <img class="player-img" src="/images/player1.svg">
+        <h4 id="player1-name-text" class="player-name reset">PLAYER 1 NAME</h4>
+        <h4 class="player-score" id="player-0-total">Score: 0 </h4>
+      </article>
+      <article id="player2" class="player-square">
+        <img class="player-img" src="/images/player2.svg">
+        <h4 id="player2-name-text" class="player-name">PLAYER 2 NAME</h4>
+        <h4 class="player-score" id="player-1-total">Score: 0 </h4>
+      </article>
+      <article id="player3" class="player-square">
+        <img class="player-img" src="/images/player3.svg">
+        <h4 id="player3-name-text" class="player-name">PLAYER 3 NAME</h4>
+        <h4 class="player-score" id="player-2-total">Score: 0 </h4>
+      </article>
+    </section>
+    <section class="bottom-button-area">
+      <div class="turn-area">
+        <button class="turn-button">Turns left: 12</button>
+      </div>
+      <div>
+        <button class="reset-button">RESET GAME</button>
+      </div>
+      <div class="current-round">
+        <button class="round-button">Current Round 1</button>
+      </div>
+    </section>
+  </section>
+  </section>
 
-       </section>
-      <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-      <!-- <script type="text/javascript" src="./src/index.js"></script> -->
-    </body>
+  <section class="clue">
+    <h1>FINAL JEOPARDY</h1>
+    <h4 class="cat-0"></h4>
+    <p>PLACE YOUR BETS!</p>
+    <div>
+      <label class="player-0"></label>
+      <input class="player 0 guess">
+      <label class="player-1"></label>
+      <input class="player 1 guess">
+      <label class="player-2"></label>
+      <input class="player 2 guess">
+    </div>
+  </section>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <!-- <script type="text/javascript" src="./src/index.js"></script> -->
+</body>
+
 </html>
