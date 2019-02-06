@@ -167,17 +167,23 @@ export default {
       <p>PLACE YOUR BETS!</p>
       <div class= "final-wager-input">
         <label class="player-0"></label>
-        <input class="player 0 guess">
+        <input type="number" class="player 0 wager">
         <label class="player-1"></label>
-        <input class="player 1 guess">
+        <input type="number" class="player 1 wager">
         <label class="player-2"></label>
-        <input class="player 2 guess">
+        <input type="number" class="player 2 wager">
       </div>
       <button class="final-wager-button">Submit Wager</button>
     </section>`;
     $('.question-box-area').html(finalWager);
+      round.players.forEach((player, ind) => {
+        $(`.player-${ind}`).text(player.name)
+      })
     let that = this;
     $('.final-wager-button').on('click', () => {
+      round.players[0].wager = $('.player.0.wager').val()
+      round.players[1].wager = $('.player.1.wager').val()
+      round.players[2].wager = $('.player.2.wager').val()
       this.roundThreeQuestion(round);
     })
   },
@@ -198,6 +204,15 @@ export default {
       <button class="final-submit-button">SUBMIT</button>
     </section>`;
     $('.question-box-area').html(finalQuestion);
+    round.players.forEach((player, ind) => {
+      $(`.player-${ind}`).text(player.name)
+    })
+    $('.final-submit-button').on('click', () => {
+      round.players[0].answer = $('.player.0.guess').val()
+      round.players[1].answer = $('.player.1.guess').val()
+      round.players[2].answer = $('.player.2.guess').val()
+      console.log(round)
+    })
   }
 }
 
