@@ -33,8 +33,6 @@ export default {
     });
   },
   gameBoardListener(event, game) {
-    var counter = `<button class="turn-button">Turns Left:${(game.round.turn - 1)}</button>`;
-    $('.turn-area').html(counter);
     if (event.target.tagName.toLowerCase() === 'h2') {
       event.target = event.target.parentElement
     }
@@ -155,6 +153,13 @@ export default {
     console.log(game.round.wager)
     console.log(this)
     this.gameBoardListener(e, game, wager);
+  },
+  updateGameInfo (game) {
+    let counter = `<button class="turn-button">Turns Left:${(game.round.turn - 1)}</button>`;
+    $('.turn-area').html(counter);
+    let roundBtn = `<button class="round-button">Current Round ${game.roundCount}</button></section>`;
+    $('.current-round').html(roundBtn);
+
   }
 }
 

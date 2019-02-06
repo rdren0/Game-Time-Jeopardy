@@ -230,6 +230,7 @@ h4.player-name{
 .guess-text{
   margin-bottom: 5px;
 }
+.round-button,
 .turn-button,
 .wager-button,
 .next-player,
@@ -247,7 +248,7 @@ h4.player-name{
 
 .bottom-button-area{
   display: flex;
-
+  justify-content: space-around;
 }
 
 .reset-button{

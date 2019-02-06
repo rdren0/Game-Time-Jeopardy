@@ -44,3 +44,4 @@ $('.clue').on('click', () => {
     game.round.playerSwitch(game);
   }
 })
+
