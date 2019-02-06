@@ -39,7 +39,8 @@ class Game {
   }
   createRound (players) {
     let round;
-    this.roundCount++
+    this.roundCount++;
+    domUpdates.updateGameInfo(this);
     if (!this.round ) {
       round = new Round(this.clueSet());
       this.round = round;
