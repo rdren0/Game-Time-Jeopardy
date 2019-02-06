@@ -160,6 +160,9 @@ export default {
     let roundBtn = `<button class="round-button">Current Round ${game.roundCount}</button></section>`;
     $('.current-round').html(roundBtn);
 
+  }, 
+  resetGame () {
+    location.reload();
   }
 }
 

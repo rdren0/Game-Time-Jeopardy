@@ -58,6 +58,9 @@ class Game {
     domUpdates.gameBoardListener(e, this);
     domUpdates.updateGameInfo(this);
   }
+  reset () {
+    domUpdates.resetGame();
+  }
 }
 
 export default Game;
