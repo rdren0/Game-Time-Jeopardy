@@ -36,11 +36,14 @@ $('.box').on('click', (e) => {
 
 $('.clue').on('click', () => {
   let click = event.target.className;
-  
   if (click === 'guess-button') {
     game.round.guessButton();
   }
   if (click === 'next-player') {
     game.round.playerSwitch(game);
   }
+})
+
+$('.reset-button').on('click', () => {
+  game.reset();
 })

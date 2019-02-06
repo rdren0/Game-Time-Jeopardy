@@ -55,9 +55,11 @@ class Game {
   }
   boardListener (e) {
     console.log('game board')
-
-    domUpdates.gameBoardListener(e, this)
-    ;
+    domUpdates.gameBoardListener(e, this);
+    domUpdates.updateGameInfo(this);
+  }
+  reset () {
+    domUpdates.resetGame();
   }
 }
 
