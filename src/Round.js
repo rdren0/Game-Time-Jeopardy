@@ -5,15 +5,15 @@ class Round {
   constructor(baseData, players = []) {
     this.players = players;
     this.currentPlayer = 0;
-    this.turnNum = 0;
     this.currentClue = 0;
     this.baseData = baseData;
     this.roundClues = [[], [], [], []];
     this.pointValues = [100, 200, 300, 400];
     this.playerInd = -1;
-    this.turn = 3;
+    this.turn = 6;
     this.dDouble = undefined; 
     this.wager = undefined;
+    this.ddCount = 0;
   }
   sortClues () {
     this.roundClues.forEach((rndCat, ind) => {
@@ -37,21 +37,23 @@ class Round {
       this.currentPlayer = this.players[this.playerInd]
     }
   }
-  playerSwitch(game) {
+  gameRotation(game) {
     this.turn--;
     this.setPlayer();
     domUpdates.returnBoard();
     if (this.turn === 0) {
       game.createRound(this.players);
+      console.log(game.roundCount)
     }
   }
   ddTurn () {
-    let dd = Math.floor(Math.random() * Math.floor(this.turn + 1));
-    console.log(dd)
-    return dd;
+    return Math.floor(Math.random() * Math.floor(this.turn)) + 1;
   }
   dailyDouble (e, game) {
-    console.log('round dd')
+    this.ddCount++;
+    if (game.roundCount === 2 && this.ddCount === 1) {
+      this.dDouble = this.ddTurn();
+    }
     domUpdates.dailyDouble(e, game);
   }
 }
