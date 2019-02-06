@@ -48,7 +48,7 @@ class Game {
       round.sortClues();
       console.log('rnd cnt', this.roundCount)
     } else {
-      //round 2
+      this.round = new RoundThree(this.baseData, players)
     }
   }
   clueSet () {
