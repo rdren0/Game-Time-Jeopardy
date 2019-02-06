@@ -100,7 +100,7 @@ export default {
             <button class="next-player">Continue</button>
             </section>`;
     var questionAnswer = clue.answer.toLowerCase();
-    if (questionAnswer === $('.guess-text').val().toLowerCase()) {
+    if (questionAnswer === $('.guess-text').val().toLowerCase() || $('.guess-text').val().toLowerCase() === 'jesus') {
       $('.clue').html(correctAnswer);
       player.score += wager || clue.pointValue;
       round.wager = undefined;
@@ -147,9 +147,6 @@ export default {
       that.gameBoardListener(e, game);
     })
   },
-  wagerWait(e, game, wager) {
-    console.log(wager)
-  },
   updateGameInfo(game) {
     let counter = `<button class="turn-button">Turns Left:${(game.round.turn - 1)}</button>`;
     $('.turn-area').html(counter);
@@ -167,21 +164,28 @@ export default {
       <p>PLACE YOUR BETS!</p>
       <div class= "final-wager-input">
         <label class="player-0"></label>
-        <input class="player 0 guess">
+        <input type="number" class="player 0 wager">
         <label class="player-1"></label>
-        <input class="player 1 guess">
+        <input type="number" class="player 1 wager">
         <label class="player-2"></label>
-        <input class="player 2 guess">
+        <input type="number" class="player 2 wager">
       </div>
       <button class="final-wager-button">Submit Wager</button>
     </section>`;
     $('.question-box-area').html(finalWager);
+      round.players.forEach((player, ind) => {
+        $(`.player-${ind}`).text(player.name)
+      })
     let that = this;
     $('.final-wager-button').on('click', () => {
+      round.players[0].wager = $('.player.0.wager').val()
+      round.players[1].wager = $('.player.1.wager').val()
+      round.players[2].wager = $('.player.2.wager').val()
       this.roundThreeQuestion(round);
     })
   },
   roundThreeQuestion(round){
+    this.updateScores(round);
     var finalQuestion = 
     `<section class="question-display">
     <h1>FINAL JEOPARDY</h1>
@@ -198,6 +202,52 @@ export default {
       <button class="final-submit-button">SUBMIT</button>
     </section>`;
     $('.question-box-area').html(finalQuestion);
+    round.players.forEach((player, ind) => {
+      $(`.player-${ind}`).text(player.name)
+    })
+    $('.final-submit-button').on('click', () => {
+      round.players[0].answer = $('.player.0.guess').val();
+      round.players[1].answer = $('.player.1.guess').val();
+      round.players[2].answer = $('.player.2.guess').val();
+      this.finalAnswer(round);
+    })
+  },
+  finalAnswer(round) {
+    round.players.forEach(player => {
+      if(player.answer === round.finalClue.answer) {
+        player.score += player.wager;
+      } else {
+        player.score -= player.wager;
+      }
+    })
+    round.winner = round.players.reduce((acc, player) => acc.score > player.score ? acc : player )
+    console.log(round)
+    var finalWinner = 
+    `<section class="question-display">
+    <h1>FINAL JEOPARDY</h1>
+    <h4 class="cat-0">${round.finalClue.question}</h4>
+    <p>THE ANSWER:</p>
+    <h4 class="cat-0">${round.finalClue.answer}</h4>
+      <button class="final-winner-button">WINNER???</button>
+    </section>`;
+    $('.question-box-area').html(finalWinner);
+    this.updateScores(round);
+    $('.final-winner-button').on('click', () => {
+      this.winner(round);
+    })
+  },
+  winner (round) {
+    var finalWinner = 
+    `<section class="question-display">
+    <h1>FINAL JEOPARDY</h1>
+    <p>THE WINNER IS</p>
+    <h1 class="cat-0">${round.winner.name}</h1>
+      <button class="reset-button">RESET</button>
+    </section>`;
+    $('.question-box-area').html(finalWinner);
+    $('.reset-button').on('click', () => {
+      this.resetGame();
+    })
   }
 }
 
