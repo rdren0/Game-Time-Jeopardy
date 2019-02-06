@@ -230,6 +230,8 @@ h4.player-name{
 .guess-text{
   margin-bottom: 5px;
 }
+
+.final-wager-button,
 .round-button,
 .turn-button,
 .wager-button,
@@ -269,5 +271,23 @@ h4.player-name{
   text-decoration: underline;
 }
 
+.final-question-display{
+  background-color: gainsboro;
+  border: 5px solid black;
+  font-size: 30px;
+}
 
+.final-question-display{
+  margin-bottom: 10px;
+}
+
+
+.final-wager-input{
+  display: flex;
+  justify-content: space-between;
+}
+
+input .final-wager-input{
+  width: 200px;
+}
 

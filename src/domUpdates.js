@@ -160,25 +160,28 @@ export default {
   resetGame () {
     location.reload();
   },
-  roundThree(){
-    var finalWager = 
-    `<section class="question-display">
+  roundThree(round){
+    var finalWager = `<section class="final-question-display">
       <h1>FINAL JEOPARDY</h1>
       <h4 class="cat-0"></h4>
       <p>PLACE YOUR BETS!</p>
-      <div>
+      <div class= "final-wager-input">
         <label class="player-0"></label>
         <input class="player 0 guess">
         <label class="player-1"></label>
         <input class="player 1 guess">
         <label class="player-2"></label>
         <input class="player 2 guess">
-        <buttton class="wager-bets-button"></button>
       </div>
+      <button class="final-wager-button">Submit Answer</button>
     </section>`;
-    $('.question-box-area').text(finalWager);
+    $('.question-box-area').html(finalWager);
+    let that = this;
+    $('.final-wager-button').on('click', () => {
+      this.roundThreeQuestion(round);
+    })
   },
-  roundThreeQuestion(){
+  roundThreeQuestion(round){
     var finalQuestion = 
     `<section class="question-display">
     <h1>FINAL JEOPARDY</h1>
@@ -194,7 +197,7 @@ export default {
       <buttton></button>
     </div>
     </section>`;
-    $('.question-box-area').text(finalQuestion);
+    $('.question-box-area').html(finalQuestion);
   }
 }
 

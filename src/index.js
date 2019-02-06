@@ -4,7 +4,6 @@ import Player from './Player.js';
 import Round from './Round.js';
 import domUpdates from './domUpdates.js';
 import Clue from './Clue.js';
-// import DailyDouble from './DailyDouble.js';
 import Data from './data.js'
 import './css/base.css';
 import $ from 'jquery';
@@ -48,6 +47,3 @@ $('.reset-button').on('click', () => {
   game.reset();
 })
 
-$('.wager-bets-button').on('click', () =>{
-  domUpdates.roundThreeQuestion();
-})

@@ -52,7 +52,7 @@ class Game {
     } else {
 
       this.round = new RoundThree(this.allData, players)
-      this.round.grabClue();
+      this.round.grabClue(this.round);
       this.round.displayRound()
       console.log(this);
     }
