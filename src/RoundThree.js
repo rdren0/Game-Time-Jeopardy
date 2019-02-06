@@ -7,6 +7,7 @@ class RoundThree extends Round {
     this.finalClue = 0;
     this.wagers = [];
     this.guesses = [];
+    this.winner = {};
   }
   grabClue () {
     this.roundClues = this.baseData.splice(0,1)

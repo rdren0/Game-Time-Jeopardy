@@ -208,11 +208,22 @@ export default {
       $(`.player-${ind}`).text(player.name)
     })
     $('.final-submit-button').on('click', () => {
-      round.players[0].answer = $('.player.0.guess').val()
-      round.players[1].answer = $('.player.1.guess').val()
-      round.players[2].answer = $('.player.2.guess').val()
-      console.log(round)
+      round.players[0].answer = $('.player.0.guess').val();
+      round.players[1].answer = $('.player.1.guess').val();
+      round.players[2].answer = $('.player.2.guess').val();
+      this.finalAnswer(round);
     })
+  },
+  finalAnswer(round) {
+    round.players.forEach(player => {
+      if(player.answer === round.finalClue.answer) {
+        player.score += player.wager;
+      } else {
+        player.score -= player.wager;
+      }
+    })
+    round.winner = round.players.reduce((acc, player) => acc.score > player.score ? acc : player )
+    console.log(round)
   }
 }
 
