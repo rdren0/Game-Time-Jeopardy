@@ -138,20 +138,16 @@ export default {
             <button class="wager-button">Submit Wager</button>
           </section>`;
     $(".clue").html(wagerBubble);
-    // $('.wager-button').on('click', this.wagerWait(e, game, game.round.wager))
     let that = this;
     $('.wager-button').on('click', () => {
       game.round.wager = $('.wager-text').val();
 
       $('.clue').addClass('none');
       $('.game').removeClass('none');
-      // return that.wagerWait(e, game, wager)
       that.gameBoardListener(e, game);
     })
-    // setTimeout(this.wagerWait, 10000, e, game)
   },
   wagerWait (e, game, wager) {
-    // game.round.wager = $('.wager-text').val();
     console.log(wager)
   },
   updateGameInfo (game) {
@@ -163,6 +159,42 @@ export default {
   }, 
   resetGame () {
     location.reload();
+  },
+  roundThree(){
+    var finalWager = 
+    `<section class="question-display">
+      <h1>FINAL JEOPARDY</h1>
+      <h4 class="cat-0"></h4>
+      <p>PLACE YOUR BETS!</p>
+      <div>
+        <label class="player-0"></label>
+        <input class="player 0 guess">
+        <label class="player-1"></label>
+        <input class="player 1 guess">
+        <label class="player-2"></label>
+        <input class="player 2 guess">
+        <buttton class="wager-bets-button"></button>
+      </div>
+    </section>`;
+    $('.question-box-area').text(finalWager);
+  },
+  roundThreeQuestion(){
+    var finalQuestion = 
+    `<section class="question-display">
+    <h1>FINAL JEOPARDY</h1>
+    <h4 class="cat-0"></h4>
+    <p>PLACE YOUR BETS!</p>
+    <div>
+      <label class="player-0"></label>
+      <input class="player 0 guess">
+      <label class="player-1"></label>
+      <input class="player 1 guess">
+      <label class="player-2"></label>
+      <input class="player 2 guess">
+      <buttton></button>
+    </div>
+    </section>`;
+    $('.question-box-area').text(finalQuestion);
   }
 }
 

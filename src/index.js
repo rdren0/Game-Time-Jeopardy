@@ -47,3 +47,7 @@ $('.clue').on('click', () => {
 $('.reset-button').on('click', () => {
   game.reset();
 })
+
+$('.wager-bets-button').on('click', () =>{
+  domUpdates.roundThreeQuestion();
+})
