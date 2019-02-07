@@ -45,6 +45,15 @@ describe('Game', () => {
     })
   })
 
+  it ('should have seperate categories for each array in all data', () => {
+    game.getRandomData();
+    let verify;
+    game.allData.forEach(cat => {
+      verify = cat.every((clue) => clue.categoryId ===  cat[0].categoryId)
+      expect(verify).to.equal(true);
+    })
+  })
+
   it('should be able to create consecutive rounds', () => {
     expect(game.roundCount).to.equal(0);
 

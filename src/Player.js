@@ -1,14 +1,11 @@
 import Game from './Game.js';
 
 class Player {
-  constructor(name, score = 0, wager = 0) {
+  constructor(name = 'PLAYER') {
     this.name = name;
-    this.score = score;
+    this.score = 0;
     this.answer = '';
     this.wager = 0;
-    // if index + 1 is = to round.turnNum
-    // this.turn = true
-    // else turn = false
   }
 }
 
