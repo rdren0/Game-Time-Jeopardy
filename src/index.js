@@ -23,12 +23,9 @@ $('.start-game').on('click', (e) => {
 });
 
 $('.box').on('click', (e) => {
-  console.log(game.round.turn);
   if (game.round.turn === game.round.dDouble) {
-    console.log('dd')
     game.round.dailyDouble(e, game);
   } else {
-    console.log('norm')
     game.boardListener(e); 
   }
 });

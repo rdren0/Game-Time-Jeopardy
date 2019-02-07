@@ -38,17 +38,14 @@ class Game {
     return a.sort(() => 0.5 - Math.random());
   }
   createRound (players) {
-    let round;
     this.roundCount++;
     domUpdates.updateGameInfo(this);
-    if (!this.round ) {
-      round = new Round(this.clueSet());
-      this.round = round;
+    if (this.roundCount === 1) {
+      this.round = new Round(this.clueSet());
     } else if (this.roundCount === 2) {
-      round = new Round(this.clueSet(), players)
-      this.round = round;
+      this.round = new Round(this.clueSet(), players)
       domUpdates.newRound();
-      round.sortClues();
+      this.round.sortClues();
     } else {
       this.round = new RoundThree(this.allData, players);
       this.round.grabClue(this.round);
@@ -60,7 +57,6 @@ class Game {
     return this.allData.splice(0, 4);
   }
   boardListener (e) {
-    console.log(this.round.dDouble);
     domUpdates.gameBoardListener(e, this);
     domUpdates.updateGameInfo(this);
   }
