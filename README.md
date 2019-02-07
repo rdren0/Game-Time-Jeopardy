@@ -11,6 +11,7 @@ In making this app we have gained a better understanding of the pros and cons of
 ### Screenshots
 A few examples of screens in the game:
 ![Game-Time-Jeopardy](FirstView.png)
+The question screens:
 ![Game-Time-Jeopardy](QuestionView.png)
 
 
