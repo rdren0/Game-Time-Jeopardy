@@ -8,6 +8,9 @@ This was a paired project in which we needed to write a program in OOP style in 
 ## What We gained from this project
 In making this app we have gained a better understanding of the pros and cons of OOP vs functional programming. It has also given us an opportunity to practice writing our own tests with Mocha and Chai.
 
+##The link to Github sites view:
+https://rdren0.github.io/Game-Time-Jeopardy/
+
 ### Screenshots
 A few examples of screens in the game:
 ![Game-Time-Jeopardy](FirstView.png)
