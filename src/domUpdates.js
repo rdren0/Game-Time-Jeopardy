@@ -67,7 +67,6 @@ export default {
     }
   },
   addQuestionDom(currentQuestion) {
-    console.log('add question')
 
     $('.game').addClass('none');
     $('.clue').removeClass('none');
@@ -112,11 +111,11 @@ export default {
     this.updateScores(round)
   },
   activePlayer (round) {
-   $('.player-square').removeClass('active')
-   $(`.player-square.${round.playerInd}`).addClass('active');
-   if (round.finalClue) {
-   $('.player-square').addClass('active')
-   }
+    $('.player-square').removeClass('active')
+    $(`.player-square.${round.playerInd}`).addClass('active');
+    if (round.finalClue) {
+      $('.player-square').addClass('active')
+    }
   },
   returnBoard() {
     $('.game').removeClass('none');
@@ -220,7 +219,6 @@ export default {
       }
     })
     round.winner = round.players.reduce((acc, player) => acc.score > player.score ? acc : player )
-    console.log(round)
     var finalWinner = 
     `<section class="final-question-display">
     <h1>FINAL JEOPARDY</h1>
