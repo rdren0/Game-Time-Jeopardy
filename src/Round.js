@@ -2,7 +2,7 @@ import Game from './Game.js'
 import domUpdates from './domUpdates.js';
 
 class Round {
-  constructor(baseData, players = []) {
+  constructor(baseData = [], players = []) {
     this.players = players;
     this.currentPlayer = {};
     this.currentClue = {};
