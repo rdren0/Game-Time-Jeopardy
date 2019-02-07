@@ -148,7 +148,7 @@ export default {
     })
   },
   updateGameInfo(game) {
-    let counter = `<button class="turn-button">Turns Left:${(game.round.turn - 1)}</button>`;
+    let counter = `<button class="turn-button">Turns Left:${(game.round.turn)}</button>`;
     $('.turn-area').html(counter);
     let roundBtn = `<button class="round-button">Current Round ${game.roundCount}</button></section>`;
     $('.current-round').html(roundBtn);

@@ -4,8 +4,8 @@ import domUpdates from './domUpdates.js';
 class Round {
   constructor(baseData, players = []) {
     this.players = players;
-    this.currentPlayer = 0;
-    this.currentClue = 0;
+    this.currentPlayer = {};
+    this.currentClue = {};
     this.baseData = baseData;
     this.roundClues = [[], [], [], []];
     this.pointValues = [100, 200, 300, 400];
