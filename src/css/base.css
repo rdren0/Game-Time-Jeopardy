@@ -29,8 +29,8 @@ label{
 }
 
 input{
-  width: 120px;
   height: 20px;
+  margin-bottom: 10px;
   font-size: 20px;
   text-align: center;
   border: 3px solid black;
@@ -279,12 +279,14 @@ h4.player-name{
 
 .final-question-display{
   margin-bottom: 10px;
+  text-align: center;
 }
 
 
 .final-wager-input{
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  margin-bottom: 10px;
 }
 
 input .final-wager-input{
