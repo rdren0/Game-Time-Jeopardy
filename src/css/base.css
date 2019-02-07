@@ -136,6 +136,11 @@ h4.player-name{
   border-radius: 5px;
 }
 
+.active {
+  background: yellow;
+}
+
+
 .player-img{
   height: 85px;
 }

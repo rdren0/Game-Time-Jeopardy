@@ -72,7 +72,7 @@ describe ('Round', () => {
     }
   }
 
-  it ('should be avle to make new round', () => {
+  it ('should be able to make new round', () => {
     const round = game.round;
     const initialTurn = round.turn;
 

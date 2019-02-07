@@ -111,6 +111,13 @@ export default {
     }
     this.updateScores(round)
   },
+  activePlayer (round) {
+   $('.player-square').removeClass('active')
+   $(`.player-square.${round.playerInd}`).addClass('active');
+   if (round.finalClue) {
+   $('.player-square').addClass('active')
+   }
+  },
   returnBoard() {
     $('.game').removeClass('none');
     $('.clue').addClass('none');

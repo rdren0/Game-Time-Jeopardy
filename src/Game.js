@@ -39,7 +39,6 @@ class Game {
   }
   createRound (players) {
     this.roundCount++;
-    domUpdates.updateGameInfo(this);
     if (this.roundCount === 1) {
       this.round = new Round(this.clueSet());
     } else if (this.roundCount === 2) {
@@ -52,6 +51,7 @@ class Game {
       this.round.displayRound();
       domUpdates.updateGameInfo(this);
     }
+    domUpdates.updateGameInfo(this);
   }
   clueSet () {
     return this.allData.splice(0, 4);

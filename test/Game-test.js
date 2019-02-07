@@ -10,7 +10,7 @@ chai.use(spies);
 const expect = chai.expect;
 
 chai.spy.on(domUpdates, 'grabNames',  () => [1, 2, 3]);
-chai.spy.on(domUpdates, ['loadGameBoard', 'displayCategories', 'gameBoardListener', 'updateGameInfo', 'newRound', 'roundThree', 'resetGame'], () => true);
+chai.spy.on(domUpdates, ['loadGameBoard', 'activePlayer', 'displayCategories', 'gameBoardListener', 'updateGameInfo', 'newRound', 'roundThree', 'resetGame'], () => true);
 
 describe('Game', () => {
   let game;
