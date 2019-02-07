@@ -10,7 +10,7 @@ chai.use(spies);
 const expect = chai.expect;
 
 chai.spy.on(domUpdates, 'grabNames',  () => [1, 2, 3]);
-chai.spy.on(domUpdates, ['loadGameBoard', 'displayCategories', 'gameBoardListener', 'updateGameInfo','newRound', 'roundThree', 'resetGame'], () => true);
+chai.spy.on(domUpdates, ['loadGameBoard', 'displayCategories', 'gameBoardListener', 'updateGameInfo', 'newRound', 'roundThree', 'resetGame'], () => true);
 
 describe('Game', () => {
   let game;
@@ -29,7 +29,7 @@ describe('Game', () => {
   
   it('should be able to have three player objects', () => {
     game.createRound();
-    game.createPlayers(['Pam','Robbie','Brittany']);
+    game.createPlayers(['Pam', 'Robbie', 'Brittany']);
     expect(game.round.players.length).to.equal(3);
     game.round.players.forEach(player => {
       expect(player).to.be.an.instanceOf(Player);

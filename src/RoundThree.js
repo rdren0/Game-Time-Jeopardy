@@ -9,7 +9,7 @@ class RoundThree extends Round {
   }
   grabClue () {
     this.turn = 2;
-    this.roundClues = this.baseData.splice(0,1)
+    this.roundClues = this.baseData.splice(0, 1)
     this.finalClue = this.roundClues[0].find(clue => clue.pointValue === 400);
   }
   displayRound () {

@@ -157,25 +157,21 @@ export default {
   resetGame () {
     location.reload();
   },
-  roundThree(round){
+  roundThree(round) {
     var finalWager = `<section class="final-question-display">
       <h1>FINAL JEOPARDY</h1>
       <h4 class="cat-0"></h4>
-      <p>PLACE YOUR BETS!</p>
+      <button class="final-wager-button">Place your bets!</button>
       <div class= "final-wager-input">
-        <label class="player-0"></label>
         <input type="number" class="player 0 wager">
-        <label class="player-1"></label>
         <input type="number" class="player 1 wager">
-        <label class="player-2"></label>
         <input type="number" class="player 2 wager">
       </div>
-      <button class="final-wager-button">Submit Wager</button>
     </section>`;
     $('.question-box-area').html(finalWager);
-      round.players.forEach((player, ind) => {
-        $(`.player-${ind}`).text(player.name)
-      })
+    round.players.forEach((player, ind) => {
+      $(`.player-${ind}`).text(player.name)
+    })
     let that = this;
     $('.final-wager-button').on('click', () => {
       round.players[0].wager = $('.player.0.wager').val()
@@ -184,22 +180,18 @@ export default {
       this.roundThreeQuestion(round);
     })
   },
-  roundThreeQuestion(round){
+  roundThreeQuestion(round) {
     this.updateScores(round);
     var finalQuestion = 
-    `<section class="question-display">
+    `<section class="final-question-display">
     <h1>FINAL JEOPARDY</h1>
     <h4 class="cat-0">${round.finalClue.question}</h4>
-    <p>Your answers:</p>
-    <div>
-      <label class="player-0"></label>
+      <button class="final-submit-button">Submit Answers</button>
+    <div class="final-wager-input">
       <input type="password" class="player 0 guess">
-      <label class="player-1"></label>
       <input type="password" class="player 1 guess">
-      <label class="player-2"></label>
       <input type="password" class="player 2 guess">
     </div>
-      <button class="final-submit-button">SUBMIT</button>
     </section>`;
     $('.question-box-area').html(finalQuestion);
     round.players.forEach((player, ind) => {
@@ -214,7 +206,7 @@ export default {
   },
   finalAnswer(round) {
     round.players.forEach(player => {
-      if(player.answer === round.finalClue.answer) {
+      if (player.answer === round.finalClue.answer) {
         player.score += player.wager;
       } else {
         player.score -= player.wager;
@@ -223,12 +215,12 @@ export default {
     round.winner = round.players.reduce((acc, player) => acc.score > player.score ? acc : player )
     console.log(round)
     var finalWinner = 
-    `<section class="question-display">
+    `<section class="final-question-display">
     <h1>FINAL JEOPARDY</h1>
     <h4 class="cat-0">${round.finalClue.question}</h4>
     <p>THE ANSWER:</p>
     <h4 class="cat-0">${round.finalClue.answer}</h4>
-      <button class="final-winner-button">WINNER???</button>
+      <button class="final-winner-button final-submit-button">WINNER???</button>
     </section>`;
     $('.question-box-area').html(finalWinner);
     this.updateScores(round);
@@ -238,7 +230,7 @@ export default {
   },
   winner (round) {
     var finalWinner = 
-    `<section class="question-display">
+    `<section class="final-question-display">
     <h1>FINAL JEOPARDY</h1>
     <p>THE WINNER IS</p>
     <h1 class="cat-0">${round.winner.name}</h1>
