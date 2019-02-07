@@ -9,8 +9,8 @@ class Round {
     this.baseData = baseData;
     this.roundClues = [[], [], [], []];
     this.pointValues = [100, 200, 300, 400];
-    this.playerInd = -1;
-    this.turn = 1;
+    this.playerInd = 0;
+    this.turn = 12;
     this.dDouble = undefined; 
     this.wager = undefined;
     this.ddCount = 0;
@@ -29,13 +29,12 @@ class Round {
     domUpdates.checkGuess(this, this.currentPlayer,this.wager);
   }
   setPlayer() {
-    this.playerInd++
-    if (this.playerInd === 3) {
-      this.currentPlayer = this.players[0];
-      this.playerInd = -1;
-    } else {
-      this.currentPlayer = this.players[this.playerInd]
+    this.currentPlayer = this.players[this.playerInd]
+    if (this.playerInd === 2) {
+      this.playerInd = 0;
+      return
     }
+      this.playerInd++
   }
   gameRotation(game) {
     this.turn--;

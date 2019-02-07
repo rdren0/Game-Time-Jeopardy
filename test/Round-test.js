@@ -26,8 +26,8 @@ describe ('Round', () => {
         expect(round.currentClue).to.deep.equal({});
         expect(round.baseData.length).to.equal(4);
         expect(round.pointValues).to.deep.equal([100, 200, 300, 400]);
-        expect(round.playerInd).to.equal(-1);
-        expect(round.turn).to.equal(1);
+        expect(round.playerInd).to.equal(0);
+        expect(round.turn).to.equal(12);
         expect(round.dDouble).to.equal(undefined);
         expect(round.wager).to.equal(undefined);
         expect(round.ddCount).to.equal(0);
@@ -51,7 +51,6 @@ describe ('Round', () => {
         const turnOne = round.currentPlayer
         const indOne = round.playerInd;
         
-        console.log(round.players[0])
         round.setPlayer();
         expect(round.currentPlayer).to.not.deep.equal(turnOne);
         expect(round.playerInd).to.not.equal(indOne);
@@ -63,8 +62,53 @@ describe ('Round', () => {
         expect(round.playerInd).to.not.equal(indTwo);
 
         round.setPlayer();
-        round.setPlayer();
         expect(round.currentPlayer).to.deep.equal(turnOne);
         expect(round.playerInd).to.equal(indOne);
+    })
+
+    function nextTurn (turns) {
+        for(let i = turns; i > 0; i--){
+            game.round.gameRotation(game);
+        }
+    }
+
+    it ('should be avle to make new round', () => {
+        const round = game.round;
+        const initialTurn = round.turn;
+
+        round.gameRotation(game);
+        let newTurn = round.turn;
+        const difference = initialTurn - newTurn;
+        expect(difference).to.equal(1);
+        expect(domUpdates.returnBoard).to.have.been.called;
+        nextTurn(10);
+        expect(round.turn).to.equal(1);
+        round.gameRotation(game);
+        expect(domUpdates.updateGameInfo).to.have.been.called;
+    })
+    
+    it ('should have one DDs for round 1', () => {
+        const round = game.round;
+        const initialDDC = round.ddCount;
+        
+        round.dailyDouble(undefined, game)
+        const newTurn = round.ddCount;
+        const difference = newTurn - initialDDC;
+        expect(difference).to.equal(1);
+        expect(domUpdates.dailyDouble).to.have.been.called;
+    })
+    
+    it ('should have two DDs for round 2', () => {
+        const round = game.round;
+        
+        round.dailyDouble(undefined, game);
+        expect(domUpdates.dailyDouble).to.have.been.called;
+        const secondDDC = round.ddCount;
+
+        round.dailyDouble(undefined, game);
+        const newDDC = round.ddCount;
+        const difference = newDDC - secondDDC;
+        expect(difference).to.equal(1);
+        expect(domUpdates.dailyDouble).to.have.been.called;
     })
 })

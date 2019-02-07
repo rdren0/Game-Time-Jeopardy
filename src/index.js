@@ -3,7 +3,6 @@ import Game from './Game.js';
 import Player from './Player.js';
 import Round from './Round.js';
 import domUpdates from './domUpdates.js';
-import Clue from './Clue.js';
 import Data from './data.js'
 import './css/base.css';
 import $ from 'jquery';
