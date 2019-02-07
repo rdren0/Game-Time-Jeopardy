@@ -43,7 +43,6 @@ class Round {
     domUpdates.returnBoard();
     if (this.turn === 0) {
       game.createRound(this.players);
-      console.log(game.roundCount)
     }
   }
   ddTurn () {

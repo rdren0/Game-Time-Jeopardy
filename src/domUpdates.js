@@ -102,11 +102,11 @@ export default {
     var questionAnswer = clue.answer.toLowerCase();
     if (questionAnswer === $('.guess-text').val().toLowerCase() || $('.guess-text').val().toLowerCase() === 'jesus') {
       $('.clue').html(correctAnswer);
-      player.score += wager || clue.pointValue;
+      player.score += parseInt(wager) || clue.pointValue;
       round.wager = undefined;
     } else {
       $('.clue').html(wrongAnswer);
-      player.score -= wager || clue.pointValue;
+      player.score -= parseInt(wager) || clue.pointValue;
       round.wager = undefined;
     }
     this.updateScores(round)
@@ -242,12 +242,8 @@ export default {
     <h1>FINAL JEOPARDY</h1>
     <p>THE WINNER IS</p>
     <h1 class="cat-0">${round.winner.name}</h1>
-      <button class="reset-button">RESET</button>
     </section>`;
     $('.question-box-area').html(finalWinner);
-    $('.reset-button').on('click', () => {
-      this.resetGame();
-    })
   }
 }
 
