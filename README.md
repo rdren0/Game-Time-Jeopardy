@@ -9,22 +9,18 @@ This was a paired project in which we needed to write a program in OOP style in 
 In making this app we have gained a better understanding of the pros and cons of OOP vs functional programming. It has also given us an opportunity to practice writing our own tests with Mocha and Chai.
 
 ### Screenshots
-Here is the design we were asked to recreate:
+A few examples of screens in the game:
 ![Game-Time-Jeopardy](FirstView.png)
-Here is ours- we added a button row to allow the user to filter ideas:
 ![Game-Time-Jeopardy](QuestionView.png)
 
 
 
 
 ## Dependecies
-
 Once you have cloned the repo, install the library dependencies. Run:
-
 ```bash
 npm install
 ```
-
 To verify that it is setup correctly, run `npm start` in your terminal. Go to `http://localhost:8080/` and you should see a page with some `h1` text and a pink background. If that's the case, enter `control + c` in your terminal to stop the server.
 
 
@@ -44,9 +40,6 @@ Project is running at http://localhost:8080/
 ```
 
 Go to `http://localhost:8080/` in your browser to view your code running in the browser.
-
-
-
 
 
 ## Webpack?
