@@ -39,7 +39,7 @@ $('.clue').on('click', () => {
   }
 })
 
-$('.reset-button').on('click', () => {
+$('#reset-button').on('click', () => {
   game.reset();
 })
 
