@@ -12,16 +12,16 @@ In the project directory, please run:
 `npm start`
 
 
-### Screenshots
+## Player Select
+![2019-06-08 13 23 32](https://user-images.githubusercontent.com/39016273/59151483-1e4d0b00-89f1-11e9-9c21-4ad2f326e4dc.gif)
 
 
 
 ----------------------------------------------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------------------------------------
-A few examples of screens in the game:
-![Game-Time-Jeopardy](FirstView.png)
-The question screens:
-![Game-Time-Jeopardy](QuestionView.png)
+## Asnwering a Question
+![2019-06-08 13 25 51](https://user-images.githubusercontent.com/39016273/59151488-33c23500-89f1-11e9-9609-cbcdf6b0c8b6.gif)
+
 
 
 
@@ -30,14 +30,6 @@ The question screens:
 
 ## The link to Github sites view:
 https://rdren0.github.io/Game-Time-Jeopardy/
-
-## Dependecies
-Once you have cloned the repo, install the library dependencies. Run:
-```bash
-npm install
-```
-To verify that it is setup correctly, run `npm start` in your terminal. Go to `http://localhost:8080/` and you should see a page with some `h1` text and a pink background. If that's the case, enter `control + c` in your terminal to stop the server.
-
 
 
 
