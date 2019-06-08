@@ -1,6 +1,6 @@
 
 # Jeopardy
-Play the classic game of Jeopardy with friends! A two person project involving Javascript OOP and JQuery
+Play the classic game of Jeopardy with friends!
 
 By: 
 * Rachael Drennan https://github.com/rdren0
@@ -34,4 +34,14 @@ Open [http://localhost:8080](http://localhost:8080) to view it in the browser.
 https://rdren0.github.io/Game-Time-Jeopardy/
 
 
+## Tech/Frameworks Used
+* JavaScript- OOP
+* JQuery
+* Mocha/Chai
+
+
+## Learning Goals 
+* OOP
+* Utilizing JQuery
+* Testing with Mocha/Chai
 
