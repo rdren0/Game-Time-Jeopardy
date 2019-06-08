@@ -1,17 +1,23 @@
 
 # Jeopardy
-### By Devin and Rachael
+Play the classic game of Jeopardy with friends! A two person project involving Javascript OOP and JQuery
 
+## Installation
 
-This was a paired project in which we needed to write a program in OOP style in the theme of Jeopardy.
+`https://github.com/rdren0/Game-Time-Jeopardy.git`
 
-## What We gained from this project
-In making this app we have gained a better understanding of the pros and cons of OOP vs functional programming. It has also given us an opportunity to practice writing our own tests with Mocha and Chai.
+In the project directory, please run:
 
-## The link to Github sites view:
-https://rdren0.github.io/Game-Time-Jeopardy/
+`npm install`
+`npm start`
+
 
 ### Screenshots
+
+
+
+----------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------
 A few examples of screens in the game:
 ![Game-Time-Jeopardy](FirstView.png)
 The question screens:
@@ -19,6 +25,11 @@ The question screens:
 
 
 
+----------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------
+
+## The link to Github sites view:
+https://rdren0.github.io/Game-Time-Jeopardy/
 
 ## Dependecies
 Once you have cloned the repo, install the library dependencies. Run:
@@ -28,26 +39,5 @@ npm install
 To verify that it is setup correctly, run `npm start` in your terminal. Go to `http://localhost:8080/` and you should see a page with some `h1` text and a pink background. If that's the case, enter `control + c` in your terminal to stop the server.
 
 
-
-## How to View Your Code in Action
-
-In the terminal, run:
-
-```bash
-npm start
-```
-
-You will see a bunch of lines output to your terminal. One of those lines will be something like:
-
-```bash
-Project is running at http://localhost:8080/
-```
-
-Go to `http://localhost:8080/` in your browser to view your code running in the browser.
-
-
-## Webpack?
-
-If you look in the `package.json` file, you'll see one of the library dependencies called `webpack`. If you're interested in learning more about what Webpack is and how it works behind the scenes, take a look through the [Webpack configuration documentation](https://webpack.js.org/concepts/).
 
 
